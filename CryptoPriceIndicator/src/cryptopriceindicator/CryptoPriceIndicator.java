@@ -31,16 +31,19 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     private JLabel name;
     private JLabel price;
     private JLabel rank;
+    private JLabel marketCap;
     
     private JLabel firstCoinRank;
     private JLabel firstCoin;
     private JLabel firstCoinPrice;
+    private JLabel firstCoinMC;
     
     public static String firstCoinTicker;
     public static String firstCoinTickerTrimmed;
     
     public static String firstCoinTempPrice;
     public static String firstCoinRankString;
+    public static String firstCoinTempMC;
     
     public CryptoPriceIndicator(){
         
@@ -63,7 +66,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         c.anchor = GridBagConstraints.WEST;
         c.gridx = 0;
         c.gridy = 0;
-        c.insets = new Insets(20, -50, 10, 250);
+        c.insets = new Insets(20, -50, 10, 105);
         
         coinsPanel.add(rank, c);
 
@@ -79,10 +82,19 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         price = new JLabel("Price");
         price.setForeground(Color.black);
         price.setFont(new Font("Arial", Font.BOLD, 20));
+        c.anchor = GridBagConstraints.EAST;
         c.gridx = 2;
         c.gridy = 0;
 
         coinsPanel.add(price, c);
+        
+        marketCap = new JLabel("Market Cap");
+        marketCap.setForeground(Color.black);
+        marketCap.setFont(new Font("Arial", Font.BOLD, 20));
+        c.gridx = 3;
+        c.gridy = 0;
+
+        coinsPanel.add(marketCap, c);
         
         firstCoinRank = new JLabel();
         firstCoinRank.setText(firstCoinRankString);
@@ -110,10 +122,18 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
 
         c.gridx = 2;
         c.gridy = 1;
+        
         coinsPanel.add(firstCoinPrice, c);
         
+        firstCoinMC = new JLabel();
+        firstCoinMC.setText(firstCoinTempMC);
+        firstCoinMC.setForeground(Color.black);
+        firstCoinMC.setFont(new Font("Arial", Font.BOLD, 30));
         
-        
+        c.gridx = 3;
+        c.gridy = 1;
+
+        coinsPanel.add(firstCoinMC, c);
         
         this.setVisible(true);
     }
@@ -142,6 +162,9 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
                     
                     firstCoinRankString = row.select("td:nth-of-type(2)").text();
                     System.out.println(firstCoinRankString);
+                    
+                    firstCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(firstCoinTempMC);
                     
                 }
                 count++;
