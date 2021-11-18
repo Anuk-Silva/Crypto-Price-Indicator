@@ -51,7 +51,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     public CryptoPriceIndicator(){
         
         this.setResizable(false);
-        this.setSize(1200, 700);
+        this.setSize(1250, 700);
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.lightGray);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +69,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         c.anchor = GridBagConstraints.WEST;
         c.gridx = 0;
         c.gridy = 0;
-        c.insets = new Insets(20, -50, 10, 105);
+        c.insets = new Insets(20, -50, 20, 90);
         
         coinsPanel.add(rank, c);
 
