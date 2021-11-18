@@ -53,29 +53,29 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         this.setResizable(false);
         this.setSize(1250, 700);
         this.setLocationRelativeTo(null);
-        this.getContentPane().setBackground(Color.lightGray);
+        this.getContentPane().setBackground(Color.black);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Crypto Prices");
         
         coinsPanel = new JPanel(new GridBagLayout());
-        coinsPanel.setBackground(Color.lightGray);
+        coinsPanel.setBackground(Color.black);
         this.getContentPane().add(coinsPanel, BorderLayout.NORTH);
 
         GridBagConstraints c = new GridBagConstraints();
         
         rank = new JLabel("#");
-        rank.setForeground(Color.black);
-        rank.setFont(new Font("Arial", Font.BOLD, 20));
+        rank.setForeground(Color.white);
+        rank.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
         c.gridx = 0;
         c.gridy = 0;
-        c.insets = new Insets(20, -50, 20, 90);
+        c.insets = new Insets(20, -50, 30, 90);
         
         coinsPanel.add(rank, c);
 
         name = new JLabel("Name");
-        name.setForeground(Color.black);
-        name.setFont(new Font("Arial", Font.BOLD, 20));
+        name.setForeground(Color.white);
+        name.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
         c.gridx = 1;
         c.gridy = 0;
@@ -83,8 +83,8 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         coinsPanel.add(name, c);
 
         price = new JLabel("Price");
-        price.setForeground(Color.black);
-        price.setFont(new Font("Arial", Font.BOLD, 20));
+        price.setForeground(Color.white);
+        price.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.EAST;
         c.gridx = 2;
         c.gridy = 0;
@@ -92,16 +92,16 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         coinsPanel.add(price, c);
         
         marketCap = new JLabel("Market Cap");
-        marketCap.setForeground(Color.black);
-        marketCap.setFont(new Font("Arial", Font.BOLD, 20));
+        marketCap.setForeground(Color.white);
+        marketCap.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 3;
         c.gridy = 0;
 
         coinsPanel.add(marketCap, c);
         
         circulatingSupply = new JLabel("Circulating Supply");
-        circulatingSupply.setForeground(Color.black);
-        circulatingSupply.setFont(new Font("Arial", Font.BOLD, 20));
+        circulatingSupply.setForeground(Color.white);
+        circulatingSupply.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 4;
         c.gridy = 0;
 
@@ -109,7 +109,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         
         firstCoinRank = new JLabel();
         firstCoinRank.setText(firstCoinTempRank);
-        firstCoinRank.setForeground(Color.black);
+        firstCoinRank.setForeground(Color.white);
         firstCoinRank.setFont(new Font("Arial", Font.BOLD, 30));
         
         c.gridx = 0;
@@ -119,7 +119,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         
         firstCoin = new JLabel();
         firstCoin.setText(firstCoinTickerTrimmed + ":");
-        firstCoin.setForeground(Color.black);
+        firstCoin.setForeground(Color.white);
         firstCoin.setFont(new Font("Arial", Font.BOLD, 30));
         c.gridx = 1;
         c.gridy = 1;
@@ -128,7 +128,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
 
         firstCoinPrice = new JLabel();
         firstCoinPrice.setText(firstCoinTempPrice);
-        firstCoinPrice.setForeground(Color.orange);
+        firstCoinPrice.setForeground(Color.white);
         firstCoinPrice.setFont(new Font("Arial", Font.BOLD, 30));
 
         c.gridx = 2;
@@ -138,7 +138,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         
         firstCoinMC = new JLabel();
         firstCoinMC.setText(firstCoinTempMC);
-        firstCoinMC.setForeground(Color.black);
+        firstCoinMC.setForeground(Color.white);
         firstCoinMC.setFont(new Font("Arial", Font.BOLD, 30));
         
         c.gridx = 3;
@@ -148,7 +148,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         
         firstCoinCS = new JLabel();
         firstCoinCS.setText(firstCoinTempCS);
-        firstCoinCS.setForeground(Color.black);
+        firstCoinCS.setForeground(Color.white);
         firstCoinCS.setFont(new Font("Arial", Font.BOLD, 30));
         
         c.gridx = 4;
