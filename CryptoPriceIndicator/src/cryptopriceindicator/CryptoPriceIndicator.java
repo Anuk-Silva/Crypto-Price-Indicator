@@ -32,18 +32,21 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     private JLabel price;
     private JLabel rank;
     private JLabel marketCap;
+    private JLabel circulatingSupply;
     
     private JLabel firstCoinRank;
     private JLabel firstCoin;
     private JLabel firstCoinPrice;
     private JLabel firstCoinMC;
+    private JLabel firstCoinCS;
     
     public static String firstCoinTicker;
     public static String firstCoinTickerTrimmed;
     
     public static String firstCoinTempPrice;
-    public static String firstCoinRankString;
+    public static String firstCoinTempRank;
     public static String firstCoinTempMC;
+    public static String firstCoinTempCS;
     
     public CryptoPriceIndicator(){
         
@@ -96,8 +99,16 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
 
         coinsPanel.add(marketCap, c);
         
+        circulatingSupply = new JLabel("Circulating Supply");
+        circulatingSupply.setForeground(Color.black);
+        circulatingSupply.setFont(new Font("Arial", Font.BOLD, 20));
+        c.gridx = 4;
+        c.gridy = 0;
+
+        coinsPanel.add(circulatingSupply, c);
+        
         firstCoinRank = new JLabel();
-        firstCoinRank.setText(firstCoinRankString);
+        firstCoinRank.setText(firstCoinTempRank);
         firstCoinRank.setForeground(Color.black);
         firstCoinRank.setFont(new Font("Arial", Font.BOLD, 30));
         
@@ -135,6 +146,16 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
 
         coinsPanel.add(firstCoinMC, c);
         
+        firstCoinCS = new JLabel();
+        firstCoinCS.setText(firstCoinTempCS);
+        firstCoinCS.setForeground(Color.black);
+        firstCoinCS.setFont(new Font("Arial", Font.BOLD, 30));
+        
+        c.gridx = 4;
+        c.gridy = 1;
+
+        coinsPanel.add(firstCoinCS, c);
+        
         this.setVisible(true);
     }
     
@@ -160,11 +181,14 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
                     firstCoinTempPrice = row.select("td:nth-of-type(4)").text();
                     System.out.println(firstCoinTempPrice);
                     
-                    firstCoinRankString = row.select("td:nth-of-type(2)").text();
-                    System.out.println(firstCoinRankString);
+                    firstCoinTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(firstCoinTempRank);
                     
                     firstCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
                     System.out.println(firstCoinTempMC);
+                    
+                    firstCoinTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(firstCoinTempCS);
                     
                 }
                 count++;
