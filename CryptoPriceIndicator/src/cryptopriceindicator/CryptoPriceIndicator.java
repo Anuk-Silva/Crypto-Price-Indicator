@@ -90,10 +90,10 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         name = new JLabel("Name");
         name.setForeground(Color.white);
         name.setFont(new Font("Arial", Font.BOLD, 25));
-        c.anchor = GridBagConstraints.WEST;
+        //c.anchor = GridBagConstraints.WEST;
         c.gridx = 1;
         c.gridy = 0;
-        c.insets = new Insets(20, -50, 40, 80);
+        c.insets = new Insets(20, -120, 40, 150);
 
         coinsPanel.add(name, c);
 
@@ -103,7 +103,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         c.anchor = GridBagConstraints.EAST;
         c.gridx = 2;
         c.gridy = 0;
-        c.insets = new Insets(20, -50, 40, 80);
+        c.insets = new Insets(20, -120, 40, 150);
 
         coinsPanel.add(price, c);
         
@@ -142,7 +142,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         c.anchor = GridBagConstraints.WEST;
         c.gridx = 1;
         c.gridy = 1;
-        c.insets = new Insets(20, -50, 40, 80);
+        c.insets = new Insets(20, -120, 40, 80);
 
         coinsPanel.add(firstCoin, c);
 
@@ -152,7 +152,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         firstCoinPrice.setFont(new Font("Arial", Font.BOLD, 30));
         c.gridx = 2;
         c.gridy = 1;
-        c.insets = new Insets(20, -50, 40, 80);
+        c.insets = new Insets(20, -120, 40, 150);
 
         coinsPanel.add(firstCoinPrice, c);
         
@@ -196,7 +196,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         secondCoin.setFont(new Font("Arial", Font.BOLD, 30));
         c.gridx = 1;
         c.gridy = 2;
-        c.insets = new Insets(20, -50, 40, 80);
+        c.insets = new Insets(20, -120, 40, 150);
 
         coinsPanel.add(secondCoin, c);
 
@@ -206,7 +206,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         secondCoinPrice.setFont(new Font("Arial", Font.BOLD, 30));
         c.gridx = 2;
         c.gridy = 2;
-        c.insets = new Insets(20, -50, 40, 80);
+        c.insets = new Insets(20, -120, 40, 150);
         
         coinsPanel.add(secondCoinPrice, c);
         
