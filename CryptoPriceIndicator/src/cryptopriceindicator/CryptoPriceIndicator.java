@@ -7,15 +7,19 @@ package cryptopriceindicator;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Box;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -81,17 +85,18 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         this.setResizable(false);
         this.setSize(1250, 700);
         this.setLocationRelativeTo(null);
-        this.getContentPane().setBackground(Color.black);
+        this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Crypto Prices");
         
         coinsPanel = new JPanel(new GridBagLayout());
-        coinsPanel.setBackground(Color.black);
+        coinsPanel.setBackground(Color.LIGHT_GRAY);
         this.getContentPane().add(coinsPanel, BorderLayout.NORTH);
 
         GridBagConstraints c = new GridBagConstraints();
         
         rank = new JLabel("#");
+        rank.setToolTipText("Rank is based on Market Cap");
         rank.setForeground(Color.white);
         rank.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
@@ -112,6 +117,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         coinsPanel.add(name, c);
 
         price = new JLabel("Price");
+        price.setToolTipText("Current price of the cryptocurrency according to CoinMarketCap.com");
         price.setForeground(Color.white);
         price.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.EAST;
@@ -122,6 +128,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         coinsPanel.add(price, c);
         
         marketCap = new JLabel("Market Cap");
+        marketCap.setToolTipText("The total market value of a cryptocurrency's circulating supply. It is analogous to the free-float capitalization in the stock market.");
         marketCap.setForeground(Color.white);
         marketCap.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 3;
@@ -131,6 +138,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         coinsPanel.add(marketCap, c);
         
         circulatingSupply = new JLabel("Circulating Supply");
+        circulatingSupply.setToolTipText("The amount of coins that are circulating in the market and are in public hands.");
         circulatingSupply.setForeground(Color.white);
         circulatingSupply.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 4;
@@ -297,6 +305,16 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         c.insets = new Insets(20, -50, 40, 0);
         
         coinsPanel.add(thirdCoinCS, c);
+        
+        /*
+        JSeparator sep = new JSeparator(JSeparator.HORIZONTAL);
+        sep.setSize(new Dimension(500,500));
+        c.fill = GridBagConstraints.HORIZONTAL;
+        //c.gridx = 4;
+        c.gridy = 5;
+        c.insets = new Insets(0, 0, 0, 0);
+        coinsPanel.add(sep, c);
+        */
         
         this.setVisible(true);
     }
