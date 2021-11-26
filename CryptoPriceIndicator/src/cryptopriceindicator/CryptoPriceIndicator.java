@@ -14,12 +14,15 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.border.Border;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -80,10 +83,25 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     public static String thirdCoinTempMC;
     public static String thirdCoinTempCS;
     
+    private JLabel fourthCoinRank;
+    private JLabel fourthCoin;
+    private JLabel fourthCoinPrice;
+    private JLabel fourthCoinMC;
+    private JLabel fourthCoinCS;
+  
+    public static String fourthCoinTicker;
+    public static String fourthCoinTickerTrimmed;
+    
+    public static String fourthCoinTempPrice;
+    public static String fourthCoinTempRank;
+    public static String fourthCoinTempMC;
+    public static String fourthCoinTempCS;
+    
     public CryptoPriceIndicator(){
         
         this.setResizable(false);
-        this.setSize(1250, 700);
+        //this.setSize(1550, 700);
+        this.setSize(1350, 700);
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -306,16 +324,100 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         
         coinsPanel.add(thirdCoinCS, c);
         
+        //Fourth Coin below
+        
+        fourthCoinRank = new JLabel();
+        fourthCoinRank.setText(fourthCoinTempRank);
+        fourthCoinRank.setForeground(Color.white);
+        fourthCoinRank.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 0;
+        c.gridy = 4;
+        c.insets = new Insets(20, -50, 40, 160);
+
+        coinsPanel.add(fourthCoinRank, c);
+        
+        fourthCoin = new JLabel();
+        fourthCoin.setText(fourthCoinTickerTrimmed + ":");
+        fourthCoin.setForeground(Color.white);
+        fourthCoin.setFont(new Font("Arial", Font.BOLD, 25));
+        c.anchor = GridBagConstraints.WEST;
+        c.gridx = 1;
+        c.gridy = 4;
+        c.insets = new Insets(20, -120, 40, 150);
+
+        coinsPanel.add(fourthCoin, c);
+
+        fourthCoinPrice = new JLabel();
+        fourthCoinPrice.setText(fourthCoinTempPrice);
+        fourthCoinPrice.setForeground(Color.white);
+        fourthCoinPrice.setFont(new Font("Arial", Font.BOLD, 25));
+        c.anchor = GridBagConstraints.EAST;
+        c.gridx = 2;
+        c.gridy = 4;
+        c.insets = new Insets(20, -120, 40, 150);
+        
+        coinsPanel.add(fourthCoinPrice, c);
+        
+        fourthCoinMC = new JLabel();
+        fourthCoinMC.setText(fourthCoinTempMC);
+        fourthCoinMC.setForeground(Color.white);
+        fourthCoinMC.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 3;
+        c.gridy = 4;
+        c.insets = new Insets(20, -50, 40, 80);
+
+        coinsPanel.add(fourthCoinMC, c);
+        
+        fourthCoinCS = new JLabel();
+        fourthCoinCS.setText(fourthCoinTempCS);
+        fourthCoinCS.setForeground(Color.white);
+        fourthCoinCS.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 4;
+        c.gridy = 4;
+        c.insets = new Insets(20, -50, 40, 0);
+        
+        coinsPanel.add(fourthCoinCS, c);
+        
         /*
-        JSeparator sep = new JSeparator(JSeparator.HORIZONTAL);
-        sep.setSize(new Dimension(500,500));
-        c.fill = GridBagConstraints.HORIZONTAL;
-        //c.gridx = 4;
-        c.gridy = 5;
-        c.insets = new Insets(0, 0, 0, 0);
-        coinsPanel.add(sep, c);
+        START***
+        GridBagConstraints separatorConstraint = new GridBagConstraints();
+        separatorConstraint.anchor = GridBagConstraints.WEST;
+        separatorConstraint.gridx = 0;
+        separatorConstraint.gridy = 1;
+        //separatorConstraint.weightx = 1.0;
+        separatorConstraint.fill = GridBagConstraints.HORIZONTAL;
+        separatorConstraint.gridwidth = GridBagConstraints.REMAINDER;
+        //separatorConstraint.gridwidth = GridBagConstraints.REMAINDER;
+        
+        JSeparator sep = new JSeparator();
+        sep.setPreferredSize(new Dimension(30, 100));
+        sep.setBackground(Color.black);
+        
+        coinsPanel.add(sep, separatorConstraint);
+        //coinsPanel.add(new JSeparator(JSeparator.HORIZONTAL), separatorConstraint);
+        END***
         */
         
+        /*
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 5);
+        c.insets = new Insets(100, 0, 100, 100);
+        c.gridx = 0;
+        c.gridy = 5;
+        //c.anchor = GridBagConstraints.EAST;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        //c.gridwidth = GridBagConstraints.REMAINDER;
+        //c.gridwidth = GridBagConstraints.RELATIVE;
+        //c.gridwidth = 50;
+        
+        JSeparator sep = new JSeparator();
+        sep.setBorder(border);
+        //sep.setPreferredSize(new Dimension(700,10));
+        sep.setBackground(Color.black);
+        
+        coinsPanel.add(sep,c);
+        */
+        
+        //pack();
         this.setVisible(true);
     }
     
@@ -444,15 +546,64 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
             ex.printStackTrace();
         }
     }
+    
+    static void webScrape4thCoin() {
+        int count = 0;
+        final String url = "https://coinmarketcap.com/";
+
+        try {
+            final Document document = Jsoup.connect(url).userAgent("Mozilla/17.0").timeout(10000).get();
+
+            for (Element row : document.select(
+                    "table.h7vnx2-2.czTsgW.cmc-table tr")) {
+                if (row.select("td:nth-of-type(3)").text().equals("")) {
+                    continue;
+                } else {
+                    String num1ToRemove = "4";
+                    fourthCoinTicker = row.select("td:nth-of-type(3)").text();
+                    fourthCoinTickerTrimmed = fourthCoinTicker.substring(0, fourthCoinTicker.length() - 3);
+                    System.out.println(fourthCoinTicker.substring(0, fourthCoinTicker.length() - 3));
+                    if (fourthCoinTickerTrimmed.contains(num1ToRemove)) {
+                        fourthCoinTickerTrimmed = fourthCoinTickerTrimmed.replaceAll(num1ToRemove, "");
+                    }
+                    fourthCoinTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(fourthCoinTempPrice);
+                    
+                    fourthCoinTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(fourthCoinTempRank);
+                    
+                    fourthCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(fourthCoinTempMC);
+                    
+                    fourthCoinTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(fourthCoinTempCS);
+                    
+                }
+                count++;
+                if (count == 4) {
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         // TODO code application logic here
         webScrape1stCoin();
         webScrape2ndCoin();
         webScrape3rdCoin();
+        webScrape4thCoin();
+        
+        String str = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
+        //String str = "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";
+
+        
+        UIManager.setLookAndFeel(str);
         new CryptoPriceIndicator();
     }
 
