@@ -5,10 +5,10 @@
  */
 package cryptopriceindicator;
 
-import static cryptopriceindicator.CryptoPriceIndicator.webScrape4thCoin;
-import static cryptopriceindicator.CryptoPriceIndicator.webScrapeADA;
-import static cryptopriceindicator.CryptoPriceIndicator.webScrapeBTC;
-import static cryptopriceindicator.CryptoPriceIndicator.webScrapeETH;
+import static cryptopriceindicator.TopTenCrypto.webScrape4thCoin;
+import static cryptopriceindicator.TopTenCrypto.webScrapeADA;
+import static cryptopriceindicator.TopTenCrypto.webScrapeBTC;
+import static cryptopriceindicator.TopTenCrypto.webScrapeETH;
 import javax.swing.UIManager;
 
 /**
@@ -29,7 +29,7 @@ public class App {
 
         
         UIManager.setLookAndFeel(str);
-        new CryptoPriceIndicator();
+        new TopTenCrypto();
     }
     
 }

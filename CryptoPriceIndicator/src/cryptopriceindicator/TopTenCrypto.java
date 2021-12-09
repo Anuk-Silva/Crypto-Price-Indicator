@@ -31,7 +31,7 @@ import org.jsoup.nodes.Element;
  *
  * @author Anuk
  */
-public class CryptoPriceIndicator extends JFrame implements ActionListener{
+public class TopTenCrypto extends JFrame implements ActionListener{
     
     private JPanel headerPanel;
     private JPanel coinsPanel;
@@ -105,7 +105,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     public static String fourthCoinTempMC;
     public static String fourthCoinTempCS;
     
-    public CryptoPriceIndicator(){
+    public TopTenCrypto(){
         
         this.setResizable(false);
         //this.setSize(1550, 700);
@@ -656,7 +656,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
 
         
         UIManager.setLookAndFeel(str);
-        new CryptoPriceIndicator();
+        new TopTenCrypto();
     }*/
 
     @Override
