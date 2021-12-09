@@ -644,7 +644,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception{
+    /*public static void main(String[] args) throws Exception{
         // TODO code application logic here
         webScrapeBTC();
         webScrapeETH();
@@ -657,7 +657,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         
         UIManager.setLookAndFeel(str);
         new CryptoPriceIndicator();
-    }
+    }*/
 
     @Override
     public void actionPerformed(ActionEvent e) {
