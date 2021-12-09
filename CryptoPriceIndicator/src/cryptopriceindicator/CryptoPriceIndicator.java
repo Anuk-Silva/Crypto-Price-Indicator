@@ -43,19 +43,21 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     private JLabel marketCap;
     private JLabel circulatingSupply;
     
-    private JLabel firstCoinRank;
-    private JLabel firstCoin;
-    private JLabel firstCoinPrice;
-    private JLabel firstCoinMC;
-    private JLabel firstCoinCS;
+    private JLabel btcRank;
+    private JLabel btc;
+    private JLabel btcPrice;
+    private JLabel btcMC;
+    private JLabel btcCS;
   
-    public static String firstCoinTicker;
-    public static String firstCoinTickerTrimmed;
+    public static String[] btcRow;
+    public static String btcNameCell;
+    public static String btcName;
+    public static String btcTicker;
     
-    public static String firstCoinTempPrice;
-    public static String firstCoinTempRank;
-    public static String firstCoinTempMC;
-    public static String firstCoinTempCS;
+    public static String btcTempPrice;
+    public static String btcTempRank;
+    public static String btcTempMC;
+    public static String btcTempCS;
     
     private JLabel secondCoinRank;
     private JLabel secondCoin;
@@ -176,58 +178,58 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
 
         coinsPanel.add(circulatingSupply, c);
         
-        firstCoinRank = new JLabel();
-        firstCoinRank.setText(firstCoinTempRank);
-        firstCoinRank.setForeground(Color.white);
-        firstCoinRank.setFont(new Font("Arial", Font.BOLD, 25));
+        btcRank = new JLabel();
+        btcRank.setText(btcTempRank);
+        btcRank.setForeground(Color.white);
+        btcRank.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 0;
         c.gridy = 1;
         c.insets = new Insets(20, -50, 40, 160);
         
-        coinsPanel.add(firstCoinRank, c);
+        coinsPanel.add(btcRank, c);
         
-        firstCoin = new JLabel();
-        firstCoin.setText(firstCoinTickerTrimmed + ":");
-        firstCoin.setForeground(Color.white);
-        firstCoin.setFont(new Font("Arial", Font.BOLD, 25));
+        btc = new JLabel();
+        btc.setText(btcName + ":");
+        btc.setForeground(Color.white);
+        btc.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
         c.gridx = 1;
         c.gridy = 1;
         c.insets = new Insets(20, -120, 40, 80);
 
-        coinsPanel.add(firstCoin, c);
+        coinsPanel.add(btc, c);
 
-        firstCoinPrice = new JLabel();
-        firstCoinPrice.setText(firstCoinTempPrice);
-        firstCoinPrice.setForeground(Color.white);
-        firstCoinPrice.setFont(new Font("Arial", Font.BOLD, 25));
+        btcPrice = new JLabel();
+        btcPrice.setText(btcTempPrice);
+        btcPrice.setForeground(Color.white);
+        btcPrice.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 2;
         c.gridy = 1;
         c.insets = new Insets(20, -120, 40, 150);
 
-        coinsPanel.add(firstCoinPrice, c);
+        coinsPanel.add(btcPrice, c);
         
-        firstCoinMC = new JLabel();
-        firstCoinMC.setText(firstCoinTempMC);
-        firstCoinMC.setForeground(Color.white);
-        firstCoinMC.setFont(new Font("Arial", Font.BOLD, 25));
+        btcMC = new JLabel();
+        btcMC.setText(btcTempMC);
+        btcMC.setForeground(Color.white);
+        btcMC.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 3;
         c.gridy = 1;
         c.insets = new Insets(20, -50, 40, 80);        
 
 
-        coinsPanel.add(firstCoinMC, c);
+        coinsPanel.add(btcMC, c);
         
-        firstCoinCS = new JLabel();
-        firstCoinCS.setText(firstCoinTempCS);
-        firstCoinCS.setForeground(Color.white);
-        firstCoinCS.setFont(new Font("Arial", Font.BOLD, 25));
+        btcCS = new JLabel();
+        btcCS.setText(btcTempCS);
+        btcCS.setForeground(Color.white);
+        btcCS.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.EAST;
         c.gridx = 4;
         c.gridy = 1;
         c.insets = new Insets(20, -50, 40, 0);
 
-        coinsPanel.add(firstCoinCS, c);
+        coinsPanel.add(btcCS, c);
         
         //2nd coin below
         
@@ -440,7 +442,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         this.setVisible(true);
     }
     
-    static void webScrape1stCoin() {
+    static void webScrapeBTC() {
         int count = 0;
         final String url = "https://coinmarketcap.com/";
 
@@ -452,28 +454,39 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
                 if (row.select("td:nth-of-type(3)").text().equals("")) {
                     continue;
                 } else {
-                    String num1ToRemove = "1";
-                    firstCoinTicker = row.select("td:nth-of-type(3)").text();
-                    firstCoinTickerTrimmed = firstCoinTicker.substring(0, firstCoinTicker.length() - 3);
-                    System.out.println(firstCoinTicker.substring(0, firstCoinTicker.length() - 3));
-                    if (firstCoinTickerTrimmed.contains(num1ToRemove)) {
-                        firstCoinTickerTrimmed = firstCoinTickerTrimmed.replaceAll(num1ToRemove, "");
+                    btcNameCell = row.select("td:nth-of-type(3)").text(); //Gets data from the Name cell of the given row
+                    if (btcNameCell.contains("Bitcoin"))
+                    {
+                        btcRow = btcNameCell.split(" ");
+                        btcName = btcRow[0];
+                        System.out.println(btcName);
+                        btcTicker = btcRow[2];
+                        System.out.println(btcTicker);
+                        btcName = btcName + " " + btcTicker;
+                        System.out.println(btcName);
+                        btcNameCell = btcNameCell.split(" ")[0];
+                        System.out.println("This is Bitcoin");
+                        System.out.println(btcNameCell);
                     }
-                    firstCoinTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(firstCoinTempPrice);
+                    else{
+                        System.out.println("This is not Bitcoin");
+                    }
                     
-                    firstCoinTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(firstCoinTempRank);
+                    btcTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(btcTempPrice);
                     
-                    firstCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(firstCoinTempMC);
+                    btcTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(btcTempRank);
                     
-                    firstCoinTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(firstCoinTempCS);
+                    btcTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(btcTempMC);
+                    
+                    btcTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(btcTempCS);
                     
                 }
                 count++;
-                if (count == 1) {
+                if(btcNameCell.contains("Bitcoin")){
                     break;
                 }
             }
@@ -497,21 +510,21 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
                     String num1ToRemove = "2";
                     secondCoinTicker = row.select("td:nth-of-type(3)").text();
                     secondCoinTickerTrimmed = secondCoinTicker.substring(0, secondCoinTicker.length() - 3);
-                    System.out.println(secondCoinTicker.substring(0, secondCoinTicker.length() - 3));
+                    //System.out.println(secondCoinTicker.substring(0, secondCoinTicker.length() - 3));
                     if (secondCoinTickerTrimmed.contains(num1ToRemove)) {
                         secondCoinTickerTrimmed = secondCoinTickerTrimmed.replaceAll(num1ToRemove, "");
                     }
                     secondCoinTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(secondCoinTempPrice);
+                    //System.out.println(secondCoinTempPrice);
                     
                     secondCoinTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(secondCoinTempRank);
+                    //System.out.println(secondCoinTempRank);
                     
                     secondCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(secondCoinTempMC);
+                    //System.out.println(secondCoinTempMC);
                     
                     secondCoinTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(secondCoinTempCS);
+                    //System.out.println(secondCoinTempCS);
                     
                 }
                 count++;
@@ -539,21 +552,21 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
                     String num1ToRemove = "3";
                     thirdCoinTicker = row.select("td:nth-of-type(3)").text();
                     thirdCoinTickerTrimmed = thirdCoinTicker.substring(0, thirdCoinTicker.length() - 3);
-                    System.out.println(thirdCoinTicker.substring(0, thirdCoinTicker.length() - 3));
+                    //System.out.println(thirdCoinTicker.substring(0, thirdCoinTicker.length() - 3));
                     if (thirdCoinTickerTrimmed.contains(num1ToRemove)) {
                         thirdCoinTickerTrimmed = thirdCoinTickerTrimmed.replaceAll(num1ToRemove, "");
                     }
                     thirdCoinTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(thirdCoinTempPrice);
+                    //System.out.println(thirdCoinTempPrice);
                     
                     thirdCoinTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(thirdCoinTempRank);
+                    //System.out.println(thirdCoinTempRank);
                     
                     thirdCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(thirdCoinTempMC);
+                    //System.out.println(thirdCoinTempMC);
                     
                     thirdCoinTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(thirdCoinTempCS);
+                    //System.out.println(thirdCoinTempCS);
                     
                 }
                 count++;
@@ -581,21 +594,21 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
                     String num1ToRemove = "4";
                     fourthCoinTicker = row.select("td:nth-of-type(3)").text();
                     fourthCoinTickerTrimmed = fourthCoinTicker.substring(0, fourthCoinTicker.length() - 3);
-                    System.out.println(fourthCoinTicker.substring(0, fourthCoinTicker.length() - 3));
+                    //System.out.println(fourthCoinTicker.substring(0, fourthCoinTicker.length() - 3));
                     if (fourthCoinTickerTrimmed.contains(num1ToRemove)) {
                         fourthCoinTickerTrimmed = fourthCoinTickerTrimmed.replaceAll(num1ToRemove, "");
                     }
                     fourthCoinTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(fourthCoinTempPrice);
+                    //System.out.println(fourthCoinTempPrice);
                     
                     fourthCoinTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(fourthCoinTempRank);
+                    //System.out.println(fourthCoinTempRank);
                     
                     fourthCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(fourthCoinTempMC);
+                    //System.out.println(fourthCoinTempMC);
                     
                     fourthCoinTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(fourthCoinTempCS);
+                    //System.out.println(fourthCoinTempCS);
                     
                 }
                 count++;
@@ -613,7 +626,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
      */
     public static void main(String[] args) throws Exception{
         // TODO code application logic here
-        webScrape1stCoin();
+        webScrapeBTC();
         webScrape2ndCoin();
         webScrape3rdCoin();
         webScrape4thCoin();
