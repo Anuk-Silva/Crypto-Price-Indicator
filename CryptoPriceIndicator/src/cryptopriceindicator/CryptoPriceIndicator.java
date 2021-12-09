@@ -33,7 +33,9 @@ import org.jsoup.nodes.Element;
  */
 public class CryptoPriceIndicator extends JFrame implements ActionListener{
     
+    private JPanel headerPanel;
     private JPanel coinsPanel;
+    private JPanel testPanel;
     
     private JLabel name;
     private JLabel price;
@@ -107,10 +109,19 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Crypto Prices");
         
+        headerPanel = new JPanel(new GridBagLayout());
         coinsPanel = new JPanel(new GridBagLayout());
+        testPanel = new JPanel();
+        
+        headerPanel.setBackground(Color.LIGHT_GRAY);
         coinsPanel.setBackground(Color.LIGHT_GRAY);
+        testPanel.setBackground(Color.MAGENTA);
+        
+        //this.getContentPane().add(headerPanel, BorderLayout.NORTH);
         this.getContentPane().add(coinsPanel, BorderLayout.NORTH);
+        this.getContentPane().add(testPanel, BorderLayout.SOUTH);
 
+        
         GridBagConstraints c = new GridBagConstraints();
         
         rank = new JLabel("#");
@@ -416,6 +427,14 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         
         coinsPanel.add(sep,c);
         */
+        
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 5);
+        JSeparator sep = new JSeparator();
+        sep.setBorder(border);
+        sep.setPreferredSize(new Dimension(10000,10));
+        sep.setBackground(Color.black);
+        
+        testPanel.add(sep);
         
         //pack();
         this.setVisible(true);
