@@ -59,19 +59,21 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     public static String btcTempMC;
     public static String btcTempCS;
     
-    private JLabel secondCoinRank;
-    private JLabel secondCoin;
-    private JLabel secondCoinPrice;
-    private JLabel secondCoinMC;
-    private JLabel secondCoinCS;
+    private JLabel ethRank;
+    private JLabel eth;
+    private JLabel ethPrice;
+    private JLabel ethMC;
+    private JLabel ethCS;
     
-    public static String secondCoinTicker;
-    public static String secondCoinTickerTrimmed;
+    public static String[] ethRow;
+    public static String ethNameCell;
+    public static String ethName;
+    public static String ethTicker;
     
-    public static String secondCoinTempPrice;
-    public static String secondCoinTempRank;
-    public static String secondCoinTempMC;
-    public static String secondCoinTempCS;
+    public static String ethTempPrice;
+    public static String ethTempRank;
+    public static String ethTempMC;
+    public static String ethTempCS;
     
     private JLabel thirdCoinRank;
     private JLabel thirdCoin;
@@ -233,57 +235,57 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         
         //2nd coin below
         
-        secondCoinRank = new JLabel();
-        secondCoinRank.setText(secondCoinTempRank);
-        secondCoinRank.setForeground(Color.white);
-        secondCoinRank.setFont(new Font("Arial", Font.BOLD, 25));
+        ethRank = new JLabel();
+        ethRank.setText(ethTempRank);
+        ethRank.setForeground(Color.white);
+        ethRank.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 0;
         c.gridy = 2;
         c.insets = new Insets(20, -50, 40, 160);
 
-        coinsPanel.add(secondCoinRank, c);
+        coinsPanel.add(ethRank, c);
         
-        secondCoin = new JLabel();
-        secondCoin.setText(secondCoinTickerTrimmed + ":");
-        secondCoin.setForeground(Color.white);
-        secondCoin.setFont(new Font("Arial", Font.BOLD, 25));
+        eth = new JLabel();
+        eth.setText(ethName + ":");
+        eth.setForeground(Color.white);
+        eth.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
         c.gridx = 1;
         c.gridy = 2;
         c.insets = new Insets(20, -120, 40, 150);
 
-        coinsPanel.add(secondCoin, c);
+        coinsPanel.add(eth, c);
         c.anchor = GridBagConstraints.EAST;
 
-        secondCoinPrice = new JLabel();
-        secondCoinPrice.setText(secondCoinTempPrice);
-        secondCoinPrice.setForeground(Color.white);
-        secondCoinPrice.setFont(new Font("Arial", Font.BOLD, 25));
+        ethPrice = new JLabel();
+        ethPrice.setText(ethTempPrice);
+        ethPrice.setForeground(Color.white);
+        ethPrice.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 2;
         c.gridy = 2;
         c.insets = new Insets(20, -120, 40, 150);
         
-        coinsPanel.add(secondCoinPrice, c);
+        coinsPanel.add(ethPrice, c);
         
-        secondCoinMC = new JLabel();
-        secondCoinMC.setText(secondCoinTempMC);
-        secondCoinMC.setForeground(Color.white);
-        secondCoinMC.setFont(new Font("Arial", Font.BOLD, 25));
+        ethMC = new JLabel();
+        ethMC.setText(ethTempMC);
+        ethMC.setForeground(Color.white);
+        ethMC.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 3;
         c.gridy = 2;
         c.insets = new Insets(20, -50, 40, 80);
 
-        coinsPanel.add(secondCoinMC, c);
+        coinsPanel.add(ethMC, c);
         
-        secondCoinCS = new JLabel();
-        secondCoinCS.setText(secondCoinTempCS);
-        secondCoinCS.setForeground(Color.white);
-        secondCoinCS.setFont(new Font("Arial", Font.BOLD, 25));
+        ethCS = new JLabel();
+        ethCS.setText(ethTempCS);
+        ethCS.setForeground(Color.white);
+        ethCS.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 4;
         c.gridy = 2;
         c.insets = new Insets(20, -50, 40, 0);
         
-        coinsPanel.add(secondCoinCS, c);
+        coinsPanel.add(ethCS, c);
         
         //3rd coin below
         
@@ -443,7 +445,6 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     }
     
     static void webScrapeBTC() {
-        int count = 0;
         final String url = "https://coinmarketcap.com/";
 
         try {
@@ -485,7 +486,6 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
                     System.out.println(btcTempCS);
                     
                 }
-                count++;
                 if(btcNameCell.contains("Bitcoin")){
                     break;
                 }
@@ -495,8 +495,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
         }
     }
     
-    static void webScrape2ndCoin() {
-        int count = 0;
+    static void webScrapeETH() {
         final String url = "https://coinmarketcap.com/";
 
         try {
@@ -507,28 +506,38 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
                 if (row.select("td:nth-of-type(3)").text().equals("")) {
                     continue;
                 } else {
-                    String num1ToRemove = "2";
-                    secondCoinTicker = row.select("td:nth-of-type(3)").text();
-                    secondCoinTickerTrimmed = secondCoinTicker.substring(0, secondCoinTicker.length() - 3);
-                    //System.out.println(secondCoinTicker.substring(0, secondCoinTicker.length() - 3));
-                    if (secondCoinTickerTrimmed.contains(num1ToRemove)) {
-                        secondCoinTickerTrimmed = secondCoinTickerTrimmed.replaceAll(num1ToRemove, "");
+                    ethNameCell = row.select("td:nth-of-type(3)").text(); //Gets data from the Name cell of the given row
+                    if (ethNameCell.contains("Ethereum"))
+                    {
+                        ethRow = ethNameCell.split(" ");
+                        ethName = ethRow[0];
+                        System.out.println(ethName);
+                        ethTicker = ethRow[2];
+                        System.out.println(ethTicker);
+                        ethName = ethName + " " + ethTicker;
+                        System.out.println(ethName);
+                        ethNameCell = ethNameCell.split(" ")[0];
+                        System.out.println("This is Ethereum");
+                        System.out.println(ethNameCell);
                     }
-                    secondCoinTempPrice = row.select("td:nth-of-type(4)").text();
-                    //System.out.println(secondCoinTempPrice);
+                    else{
+                        System.out.println("This is not Ethereum");
+                    }
                     
-                    secondCoinTempRank = row.select("td:nth-of-type(2)").text();
-                    //System.out.println(secondCoinTempRank);
+                    ethTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(ethTempPrice);
                     
-                    secondCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    //System.out.println(secondCoinTempMC);
+                    ethTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(ethTempRank);
                     
-                    secondCoinTempCS = row.select("td:nth-of-type(9)").text();
-                    //System.out.println(secondCoinTempCS);
+                    ethTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(ethTempMC);
+                    
+                    ethTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(ethTempCS);
                     
                 }
-                count++;
-                if (count == 2) {
+                if(ethNameCell.contains("Ethereum")){
                     break;
                 }
             }
@@ -627,7 +636,7 @@ public class CryptoPriceIndicator extends JFrame implements ActionListener{
     public static void main(String[] args) throws Exception{
         // TODO code application logic here
         webScrapeBTC();
-        webScrape2ndCoin();
+        webScrapeETH();
         webScrape3rdCoin();
         webScrape4thCoin();
         
