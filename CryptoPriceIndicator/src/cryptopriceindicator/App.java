@@ -20,10 +20,14 @@ public class App {
     public static void main(String[] args) throws Exception{
         new MenuWindow();
         // TODO code application logic here
-        webScrapeBTC();
-        webScrapeETH();
-        webScrapeADA();
-        webScrape4thCoin();
+        TopTenCrypto.webScrapeBTC();
+        TopTenCrypto.webScrapeETH();
+        TopTenCrypto.webScrapeADA();
+        TopTenCrypto.webScrape4thCoin();
+        PopularCrypto.webScrapeBTC();
+        PopularCrypto.webScrapeETH();
+        PopularCrypto.webScrapeADA();
+        PopularCrypto.webScrape4thCoin();
         
         String str = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
         //String str = "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";
