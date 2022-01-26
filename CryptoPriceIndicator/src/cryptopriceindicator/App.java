@@ -18,6 +18,7 @@ import javax.swing.UIManager;
 public class App {
     
     public static void main(String[] args) throws Exception{
+        new MenuWindow();
         // TODO code application logic here
         webScrapeBTC();
         webScrapeETH();
@@ -29,7 +30,7 @@ public class App {
 
         
         UIManager.setLookAndFeel(str);
-        new TopTenCrypto();
+        //new TopTenCrypto();
     }
     
 }
