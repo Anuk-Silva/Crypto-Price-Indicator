@@ -27,7 +27,7 @@ public class App {
         PopularCrypto.webScrapeBTC();
         PopularCrypto.webScrapeETH();
         PopularCrypto.webScrapeADA();
-        PopularCrypto.webScrape4thCoin();
+        PopularCrypto.webScrapeSOL();
         
         String str = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
         //String str = "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";

@@ -90,24 +90,25 @@ public class PopularCrypto extends JFrame implements ActionListener{
     public static String adaTempMC;
     public static String adaTempCS;
     
-    private JLabel fourthCoinRank;
-    private JLabel fourthCoin;
-    private JLabel fourthCoinPrice;
-    private JLabel fourthCoinMC;
-    private JLabel fourthCoinCS;
+    private JLabel solRank;
+    private JLabel sol;
+    private JLabel solPrice;
+    private JLabel solMC;
+    private JLabel solCS;
   
-    public static String fourthCoinTicker;
-    public static String fourthCoinTickerTrimmed;
+    public static String[] solRow;
+    public static String solNameCell;
+    public static String solName;
+    public static String solTicker;
     
-    public static String fourthCoinTempPrice;
-    public static String fourthCoinTempRank;
-    public static String fourthCoinTempMC;
-    public static String fourthCoinTempCS;
+    public static String solTempPrice;
+    public static String solTempRank;
+    public static String solTempMC;
+    public static String solTempCS;
     
     public PopularCrypto(){
         
         this.setResizable(false);
-        //this.setSize(1550, 700);
         this.setSize(1350, 700);
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
@@ -120,9 +121,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         headerPanel.setBackground(Color.LIGHT_GRAY);
         coinsPanel.setBackground(Color.LIGHT_GRAY);
         
-        //this.getContentPane().add(headerPanel, BorderLayout.NORTH);
         this.getContentPane().add(coinsPanel, BorderLayout.NORTH);
-
         
         GridBagConstraints c = new GridBagConstraints();
         
@@ -178,6 +177,8 @@ public class PopularCrypto extends JFrame implements ActionListener{
 
         coinsPanel.add(circulatingSupply, c);
         
+        //BTC Below
+        
         btcRank = new JLabel();
         btcRank.setText(btcTempRank);
         btcRank.setForeground(Color.white);
@@ -231,7 +232,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
 
         coinsPanel.add(btcCS, c);
         
-        //2nd coin below
+        //ETH Below
         
         ethRank = new JLabel();
         ethRank.setText(ethTempRank);
@@ -285,7 +286,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         
         coinsPanel.add(ethCS, c);
         
-        //3rd coin below
+        //ADA Below
         
         adaRank = new JLabel();
         adaRank.setText(adaTempRank);
@@ -337,59 +338,59 @@ public class PopularCrypto extends JFrame implements ActionListener{
         
         coinsPanel.add(adaCS, c);
         
-        //Fourth Coin below
+        //Solana Below
         
-        fourthCoinRank = new JLabel();
-        fourthCoinRank.setText(fourthCoinTempRank);
-        fourthCoinRank.setForeground(Color.white);
-        fourthCoinRank.setFont(new Font("Arial", Font.BOLD, 25));
+        solRank = new JLabel();
+        solRank.setText(solTempRank);
+        solRank.setForeground(Color.white);
+        solRank.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 0;
         c.gridy = 4;
         c.insets = new Insets(20, -50, 40, 160);
 
-        coinsPanel.add(fourthCoinRank, c);
+        coinsPanel.add(solRank, c);
         
-        fourthCoin = new JLabel();
-        fourthCoin.setText(fourthCoinTickerTrimmed + ":");
-        fourthCoin.setForeground(Color.white);
-        fourthCoin.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
+        sol = new JLabel();
+        sol.setText(solName + ":");
+        sol.setForeground(Color.white);
+        sol.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 1;
         c.gridy = 4;
         c.insets = new Insets(20, -120, 40, 150);
 
-        coinsPanel.add(fourthCoin, c);
+        coinsPanel.add(sol, c);
 
-        fourthCoinPrice = new JLabel();
-        fourthCoinPrice.setText(fourthCoinTempPrice);
-        fourthCoinPrice.setForeground(Color.white);
-        fourthCoinPrice.setFont(new Font("Arial", Font.BOLD, 25));
+        solPrice = new JLabel();
+        solPrice.setText(solTempPrice);
+        solPrice.setForeground(Color.white);
+        solPrice.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.EAST;
         c.gridx = 2;
         c.gridy = 4;
         c.insets = new Insets(20, -120, 40, 150);
         
-        coinsPanel.add(fourthCoinPrice, c);
+        coinsPanel.add(solPrice, c);
         
-        fourthCoinMC = new JLabel();
-        fourthCoinMC.setText(fourthCoinTempMC);
-        fourthCoinMC.setForeground(Color.white);
-        fourthCoinMC.setFont(new Font("Arial", Font.BOLD, 25));
+        solMC = new JLabel();
+        solMC.setText(solTempMC);
+        solMC.setForeground(Color.white);
+        solMC.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 3;
         c.gridy = 4;
         c.insets = new Insets(20, -50, 40, 80);
 
-        coinsPanel.add(fourthCoinMC, c);
+        coinsPanel.add(solMC, c);
         
-        fourthCoinCS = new JLabel();
-        fourthCoinCS.setText(fourthCoinTempCS);
-        fourthCoinCS.setForeground(Color.white);
-        fourthCoinCS.setFont(new Font("Arial", Font.BOLD, 25));
+        solCS = new JLabel();
+        solCS.setText(solTempCS);
+        solCS.setForeground(Color.white);
+        solCS.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 4;
         c.gridy = 4;
         c.insets = new Insets(20, -50, 40, 0);
         
-        coinsPanel.add(fourthCoinCS, c);
+        coinsPanel.add(solCS, c);
         
         /*
         START***
@@ -594,8 +595,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         }
     }
     
-    static void webScrape4thCoin() {
-        int count = 0;
+    static void webScrapeSOL() {
         final String url = "https://coinmarketcap.com/";
 
         try {
@@ -606,28 +606,38 @@ public class PopularCrypto extends JFrame implements ActionListener{
                 if (row.select("td:nth-of-type(3)").text().equals("")) {
                     continue;
                 } else {
-                    String num1ToRemove = "4";
-                    fourthCoinTicker = row.select("td:nth-of-type(3)").text();
-                    fourthCoinTickerTrimmed = fourthCoinTicker.substring(0, fourthCoinTicker.length() - 3);
-                    //System.out.println(fourthCoinTicker.substring(0, fourthCoinTicker.length() - 3));
-                    if (fourthCoinTickerTrimmed.contains(num1ToRemove)) {
-                        fourthCoinTickerTrimmed = fourthCoinTickerTrimmed.replaceAll(num1ToRemove, "");
+                    solNameCell = row.select("td:nth-of-type(3)").text(); //Gets data from the Name cell of the given row
+                    if (solNameCell.contains("Solana"))
+                    {
+                        solRow = solNameCell.split(" ");
+                        solName = solRow[0];
+                        System.out.println(solName);
+                        solTicker = solRow[2];
+                        System.out.println(solTicker);
+                        solName = solName + " " + solTicker;
+                        System.out.println(solName);
+                        solNameCell = solNameCell.split(" ")[0];
+                        System.out.println("This is Solana");
+                        System.out.println(solNameCell);
                     }
-                    fourthCoinTempPrice = row.select("td:nth-of-type(4)").text();
-                    //System.out.println(fourthCoinTempPrice);
+                    else{
+                        System.out.println("This is not Solana");
+                    }
                     
-                    fourthCoinTempRank = row.select("td:nth-of-type(2)").text();
-                    //System.out.println(fourthCoinTempRank);
+                    solTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(solTempPrice);
                     
-                    fourthCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    //System.out.println(fourthCoinTempMC);
+                    solTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(solTempRank);
                     
-                    fourthCoinTempCS = row.select("td:nth-of-type(9)").text();
-                    //System.out.println(fourthCoinTempCS);
+                    solTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(solTempMC);
+                    
+                    solTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(solTempCS);
                     
                 }
-                count++;
-                if (count == 4) {
+                if(solNameCell.contains("Solana")){
                     break;
                 }
             }
@@ -644,7 +654,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         webScrapeBTC();
         webScrapeETH();
         webScrapeADA();
-        webScrape4thCoin();
+        webScrapeSOL();
         
         String str = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
         //String str = "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";
