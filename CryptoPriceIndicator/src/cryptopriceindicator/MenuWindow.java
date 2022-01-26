@@ -43,49 +43,59 @@ public class MenuWindow extends JFrame implements ActionListener{
     
     public MenuWindow(){
         
-        /*panel = new JPanel();
-        panel.setLayout(new GridLayout(1, 2));
+        panel = new JPanel(new GridBagLayout());
+        
+        panel.setBackground(Color.LIGHT_GRAY);
+        
+        this.getContentPane().add(panel, BorderLayout.NORTH);
+        
+        GridBagConstraints c = new GridBagConstraints();
+        
+        appTitle = new JLabel("<html><h1><strong><i>Crypto Price Indicator</i></strong></h1><hr></html>");
+        c.anchor = GridBagConstraints.WEST;
+        c.gridx = 0;
+        c.gridy = 0;
+        c.insets = new Insets(0, 100, 0, 0);
+        
+        panel.add(appTitle, c);
         
         popularCrypto = new JButton("Popular Crypto");
-        popularCrypto.setMargin( new Insets(50, 50, 50, 50) );
-        panel.add(popularCrypto);
-        
-        topTenCrypto = new JButton("Top Ten Crypto");
-        topTenCrypto.setMargin( new Insets(50, 50, 50, 50) );
-        panel.add(topTenCrypto);*/
-        
-        setLayout(new GridBagLayout());
-        
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.anchor = GridBagConstraints.NORTH;
-        gbc.weighty = 1;
-        
-        add(new JLabel("<html><h1><strong><i>Crypto Price Indicator</i></strong></h1><hr></html>"), gbc);
-        
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        
-        JPanel buttons = new JPanel(new GridBagLayout());
-        popularCrypto = new JButton("Popular Crypto");
-        popularCrypto.setMargin( new Insets(0, 10, 10, 10) );
+        //popularCrypto.setMargin( new Insets(0, 10, 10, 10) );
         popularCrypto.setPreferredSize(new Dimension(200, 50));
         popularCrypto.addActionListener(this);
+        c.gridx = 0;
+        c.gridy = 5;
+        c.insets = new Insets(20, 120, 0, 150);
+        
+        panel.add(popularCrypto, c);
         
         topTenCrypto = new JButton("Top Ten Crypto");
-        topTenCrypto.setMargin( new Insets(10, 10, 10, 10) );
+        //topTenCrypto.setMargin( new Insets(10, 10, 10, 10) );
         topTenCrypto.setPreferredSize(new Dimension(200, 50));
         topTenCrypto.addActionListener(this);
+        c.gridx = 0;
+        c.gridy = 10;
+        c.insets = new Insets(20, 120, 0, 150);
         
-        buttons.add(popularCrypto, gbc);
-        buttons.add(topTenCrypto, gbc);
+        panel.add(topTenCrypto, c);
         
-        gbc.weighty = 1;
-        add(buttons, gbc);
+        //setLayout(new GridBagLayout());
+        //GridBagConstraints gbc = new GridBagConstraints();
+        //gbc.gridwidth = GridBagConstraints.REMAINDER;
+        //gbc.anchor = GridBagConstraints.NORTH;
+        //gbc.weighty = 1;
+        //add(new JLabel("<html><h1><strong><i>Crypto Price Indicator</i></strong></h1><hr></html>"), gbc);
+        //gbc.anchor = GridBagConstraints.CENTER;
+        //gbc.fill = GridBagConstraints.HORIZONTAL;
+        //JPanel buttons = new JPanel(new GridBagLayout());
+        //buttons.add(popularCrypto, gbc);
+        //buttons.add(topTenCrypto, gbc);
+        //gbc.weighty = 1;
+        //add(buttons, gbc);
+        //this.add(buttons);
         
-        this.add(buttons);
         this.setResizable(false);
-        this.setSize(400, 500);
+        this.setSize(500, 500);
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
