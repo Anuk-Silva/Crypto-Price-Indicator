@@ -26,6 +26,7 @@ public class App {
         TopTenCrypto.webScrapeFourthCoin();
         PopularCrypto.webScrapeBTC();
         PopularCrypto.webScrapeETH();
+        PopularCrypto.webScrapeBNB();
         PopularCrypto.webScrapeADA();
         PopularCrypto.webScrapeSOL();
         

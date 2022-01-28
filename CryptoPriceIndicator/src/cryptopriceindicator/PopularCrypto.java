@@ -82,6 +82,22 @@ public class PopularCrypto extends JFrame implements ActionListener{
     public static String ethTempMC;
     public static String ethTempCS;
     
+    private JLabel bnbRank;
+    private JLabel bnb;
+    private JLabel bnbPrice;
+    private JLabel bnbMC;
+    private JLabel bnbCS;
+  
+    public static String[] bnbRow;
+    public static String bnbNameCell;
+    public static String bnbName;
+    public static String bnbTicker;
+    
+    public static String bnbTempPrice;
+    public static String bnbTempRank;
+    public static String bnbTempMC;
+    public static String bnbTempCS;
+    
     private JLabel adaRank;
     private JLabel ada;
     private JLabel adaPrice;
@@ -118,6 +134,8 @@ public class PopularCrypto extends JFrame implements ActionListener{
     JLabel btcLabel;
     BufferedImage ethPic = null;
     JLabel ethLabel;
+    BufferedImage bnbPic = null;
+    JLabel bnbLabel;
     BufferedImage adaPic = null;
     JLabel adaLabel;
     BufferedImage solPic = null;
@@ -137,6 +155,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         try {
             btcPic = ImageIO.read(new File("src/crypto_icons/btc.png"));
             ethPic = ImageIO.read(new File("src/crypto_icons/eth.png"));
+            bnbPic = ImageIO.read(new File("src/crypto_icons/bnb.png"));
             adaPic = ImageIO.read(new File("src/crypto_icons/ada.png"));
             solPic = ImageIO.read(new File("src/crypto_icons/sol.png"));
         } catch (IOException ex) {
@@ -144,6 +163,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         }
         btcLabel = new JLabel(new ImageIcon(btcPic));
         ethLabel = new JLabel(new ImageIcon(ethPic));
+        bnbLabel = new JLabel(new ImageIcon(bnbPic));
         adaLabel = new JLabel(new ImageIcon(adaPic));
         solLabel = new JLabel(new ImageIcon(solPic));
         
@@ -332,6 +352,67 @@ public class PopularCrypto extends JFrame implements ActionListener{
         
         coinsPanel.add(ethCS, c);
         
+        //BNB below
+        
+        bnbRank = new JLabel();
+        bnbRank.setText(bnbTempRank);
+        bnbRank.setForeground(Color.white);
+        bnbRank.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 0;
+        c.gridy = 3;
+        c.insets = new Insets(20, -50, 40, 160);
+
+        coinsPanel.add(bnbRank, c);
+        
+        c.gridx = 1;
+        c.gridy = 3;
+        //c.insets = new Insets(0, 5, 5, 100);
+        //c.insets = new Insets(0, 0, 0, 0);
+        c.anchor = GridBagConstraints.EAST;
+        coinsPanel.add(bnbLabel,c);
+        
+        bnb = new JLabel();
+        bnb.setText(bnbName + ":");
+        bnb.setForeground(Color.white);
+        bnb.setFont(new Font("Arial", Font.BOLD, 25));
+        c.anchor = GridBagConstraints.WEST;
+        c.gridx = 2;
+        c.gridy = 3;
+        c.insets = new Insets(20, -120, 40, 150);
+
+        coinsPanel.add(bnb, c);
+        c.anchor = GridBagConstraints.EAST;
+
+        bnbPrice = new JLabel();
+        bnbPrice.setText(bnbTempPrice);
+        bnbPrice.setForeground(Color.white);
+        bnbPrice.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 3;
+        c.gridy = 3;
+        c.insets = new Insets(20, -120, 40, 150);
+        
+        coinsPanel.add(bnbPrice, c);
+        
+        bnbMC = new JLabel();
+        bnbMC.setText(bnbTempMC);
+        bnbMC.setForeground(Color.white);
+        bnbMC.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 4;
+        c.gridy = 3;
+        c.insets = new Insets(20, -50, 40, 80);
+
+        coinsPanel.add(bnbMC, c);
+        
+        bnbCS = new JLabel();
+        bnbCS.setText(bnbTempCS);
+        bnbCS.setForeground(Color.white);
+        bnbCS.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 5;
+        c.gridy = 3;
+        c.insets = new Insets(20, -50, 40, 0);
+        
+        coinsPanel.add(bnbCS, c);
+        
         //ADA Below
         
         adaRank = new JLabel();
@@ -339,13 +420,13 @@ public class PopularCrypto extends JFrame implements ActionListener{
         adaRank.setForeground(Color.white);
         adaRank.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 0;
-        c.gridy = 3;
+        c.gridy = 4;
         c.insets = new Insets(20, -50, 40, 160);
 
         coinsPanel.add(adaRank, c);
         
         c.gridx = 1;
-        c.gridy = 3;
+        c.gridy = 4;
         //c.insets = new Insets(0, 5, 5, 100);
         //c.insets = new Insets(0, 0, 0, 0);
         c.anchor = GridBagConstraints.EAST;
@@ -357,7 +438,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         ada.setForeground(Color.white);
         ada.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 2;
-        c.gridy = 3;
+        c.gridy = 4;
         c.insets = new Insets(20, -120, 40, 150);
 
         coinsPanel.add(ada, c);
@@ -367,7 +448,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         adaPrice.setForeground(Color.white);
         adaPrice.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 3;
-        c.gridy = 3;
+        c.gridy = 4;
         c.insets = new Insets(20, -120, 40, 150);
         
         coinsPanel.add(adaPrice, c);
@@ -377,7 +458,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         adaMC.setForeground(Color.white);
         adaMC.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 4;
-        c.gridy = 3;
+        c.gridy = 4;
         c.insets = new Insets(20, -50, 40, 80);
 
         coinsPanel.add(adaMC, c);
@@ -387,7 +468,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         adaCS.setForeground(Color.white);
         adaCS.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 5;
-        c.gridy = 3;
+        c.gridy = 4;
         c.insets = new Insets(20, -50, 40, 0);
         
         coinsPanel.add(adaCS, c);
@@ -399,15 +480,14 @@ public class PopularCrypto extends JFrame implements ActionListener{
         solRank.setForeground(Color.white);
         solRank.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 5;
         c.insets = new Insets(20, -50, 40, 160);
 
         coinsPanel.add(solRank, c);
         
         c.gridx = 1;
-        c.gridy = 4;
+        c.gridy = 5;
         //c.insets = new Insets(0, 5, 5, 100);
-        //c.insets = new Insets(0, 0, 0, 0);
         c.anchor = GridBagConstraints.EAST;
         coinsPanel.add(solLabel,c);
         
@@ -417,7 +497,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         sol.setForeground(Color.white);
         sol.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 2;
-        c.gridy = 4;
+        c.gridy = 5;
         c.insets = new Insets(20, -120, 40, 150);
 
         coinsPanel.add(sol, c);
@@ -428,7 +508,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         solPrice.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.EAST;
         c.gridx = 3;
-        c.gridy = 4;
+        c.gridy = 5;
         c.insets = new Insets(20, -120, 40, 150);
         
         coinsPanel.add(solPrice, c);
@@ -438,7 +518,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         solMC.setForeground(Color.white);
         solMC.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 4;
-        c.gridy = 4;
+        c.gridy = 5;
         c.insets = new Insets(20, -50, 40, 80);
 
         coinsPanel.add(solMC, c);
@@ -448,7 +528,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         solCS.setForeground(Color.white);
         solCS.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 5;
-        c.gridy = 4;
+        c.gridy = 5;
         c.insets = new Insets(20, -50, 40, 0);
         
         coinsPanel.add(solCS, c);
@@ -550,6 +630,57 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     
                 }
                 if(ethNameCell.contains("Ethereum")){
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    static void webScrapeBNB() {
+        final String url = "https://coinmarketcap.com/";
+
+        try {
+            final Document document = Jsoup.connect(url).userAgent("Mozilla/17.0").timeout(10000).get();
+
+            for (Element row : document.select(
+                    "table.h7vnx2-2.czTsgW.cmc-table tr")) {
+                if (row.select("td:nth-of-type(3)").text().equals("")) {
+                    continue;
+                } else {
+                    bnbNameCell = row.select("td:nth-of-type(3)").text(); //Gets data from the Name cell of the given row
+                    if (bnbNameCell.contains("BNB"))
+                    {
+                        bnbRow = bnbNameCell.split(" ");
+                        bnbName = bnbRow[0];
+                        System.out.println(bnbName);
+                        bnbTicker = bnbRow[2];
+                        System.out.println(bnbTicker);
+                        bnbName = bnbName + " " + bnbTicker;
+                        System.out.println(bnbName);
+                        bnbNameCell = bnbNameCell.split(" ")[0];
+                        System.out.println("This is BNB");
+                        System.out.println(bnbNameCell);
+                    }
+                    else{
+                        System.out.println("This is not BNB");
+                    }
+                    
+                    bnbTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(bnbTempPrice);
+                    
+                    bnbTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(bnbTempRank);
+                    
+                    bnbTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(bnbTempMC);
+                    
+                    bnbTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(bnbTempCS);
+                    
+                }
+                if(bnbNameCell.contains("BNB")){
                     break;
                 }
             }
