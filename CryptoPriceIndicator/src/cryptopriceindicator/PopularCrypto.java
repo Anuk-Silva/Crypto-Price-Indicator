@@ -27,6 +27,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
@@ -151,6 +152,8 @@ public class PopularCrypto extends JFrame implements ActionListener{
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Popular Cryptocurrencies and Prices");
+        
+        
         
         try {
             btcPic = ImageIO.read(new File("src/crypto_icons/btc.png"));
@@ -532,6 +535,9 @@ public class PopularCrypto extends JFrame implements ActionListener{
         c.insets = new Insets(20, -50, 40, 0);
         
         coinsPanel.add(solCS, c);
+        
+        JScrollPane scrollPane = new JScrollPane(coinsPanel);
+        add(scrollPane);
 
         this.setVisible(true);
     }
