@@ -405,11 +405,11 @@ public class PopularCrypto extends JFrame implements ActionListener{
         coinsPanel.add(solRank, c);
         
         c.gridx = 1;
-        c.gridy = 2;
+        c.gridy = 4;
         //c.insets = new Insets(0, 5, 5, 100);
         //c.insets = new Insets(0, 0, 0, 0);
         c.anchor = GridBagConstraints.EAST;
-        //coinsPanel.add(ethLabel,c);
+        coinsPanel.add(solLabel,c);
         
         c.anchor = GridBagConstraints.WEST;
         sol = new JLabel();
