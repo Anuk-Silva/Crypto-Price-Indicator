@@ -115,12 +115,13 @@ public class PopularCrypto extends JFrame implements ActionListener{
     public static String solTempCS;
     
     BufferedImage btcPic = null;
-    ImageIcon btcIcon;
     JLabel btcLabel;
     BufferedImage ethPic = null;
     JLabel ethLabel;
     BufferedImage adaPic = null;
     JLabel adaLabel;
+    BufferedImage solPic = null;
+    JLabel solLabel;
         
 
     
@@ -136,12 +137,15 @@ public class PopularCrypto extends JFrame implements ActionListener{
         try {
             btcPic = ImageIO.read(new File("src/crypto_icons/btc.png"));
             ethPic = ImageIO.read(new File("src/crypto_icons/eth.png"));
+            adaPic = ImageIO.read(new File("src/crypto_icons/ada.png"));
+            solPic = ImageIO.read(new File("src/crypto_icons/sol.png"));
         } catch (IOException ex) {
             Logger.getLogger(PopularCrypto.class.getName()).log(Level.SEVERE, null, ex);
         }
         btcLabel = new JLabel(new ImageIcon(btcPic));
-        ethLabel = new JLabel(new ImageIcon(btcPic));
-        
+        ethLabel = new JLabel(new ImageIcon(ethPic));
+        adaLabel = new JLabel(new ImageIcon(adaPic));
+        solLabel = new JLabel(new ImageIcon(solPic));
         
         headerPanel = new JPanel(new GridBagLayout());
         coinsPanel = new JPanel(new GridBagLayout());
@@ -254,7 +258,6 @@ public class PopularCrypto extends JFrame implements ActionListener{
         c.gridy = 1;
         c.insets = new Insets(20, -50, 40, 80);        
 
-
         coinsPanel.add(btcMC, c);
         
         btcCS = new JLabel();
@@ -280,12 +283,19 @@ public class PopularCrypto extends JFrame implements ActionListener{
 
         coinsPanel.add(ethRank, c);
         
+        c.gridx = 1;
+        c.gridy = 2;
+        //c.insets = new Insets(0, 5, 5, 100);
+        //c.insets = new Insets(0, 0, 0, 0);
+        c.anchor = GridBagConstraints.EAST;
+        coinsPanel.add(ethLabel,c);
+        
         eth = new JLabel();
         eth.setText(ethName + ":");
         eth.setForeground(Color.white);
         eth.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
-        c.gridx = 1;
+        c.gridx = 2;
         c.gridy = 2;
         c.insets = new Insets(20, -120, 40, 150);
 
@@ -296,7 +306,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         ethPrice.setText(ethTempPrice);
         ethPrice.setForeground(Color.white);
         ethPrice.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 2;
+        c.gridx = 3;
         c.gridy = 2;
         c.insets = new Insets(20, -120, 40, 150);
         
@@ -306,7 +316,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         ethMC.setText(ethTempMC);
         ethMC.setForeground(Color.white);
         ethMC.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 3;
+        c.gridx = 4;
         c.gridy = 2;
         c.insets = new Insets(20, -50, 40, 80);
 
@@ -316,7 +326,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         ethCS.setText(ethTempCS);
         ethCS.setForeground(Color.white);
         ethCS.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 4;
+        c.gridx = 5;
         c.gridy = 2;
         c.insets = new Insets(20, -50, 40, 0);
         
@@ -333,12 +343,20 @@ public class PopularCrypto extends JFrame implements ActionListener{
         c.insets = new Insets(20, -50, 40, 160);
 
         coinsPanel.add(adaRank, c);
+        
+        c.gridx = 1;
+        c.gridy = 3;
+        //c.insets = new Insets(0, 5, 5, 100);
+        //c.insets = new Insets(0, 0, 0, 0);
+        c.anchor = GridBagConstraints.EAST;
+        coinsPanel.add(adaLabel,c);
+        
         c.anchor = GridBagConstraints.WEST;
         ada = new JLabel();
         ada.setText(adaName + ":");
         ada.setForeground(Color.white);
         ada.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 1;
+        c.gridx = 2;
         c.gridy = 3;
         c.insets = new Insets(20, -120, 40, 150);
 
@@ -348,7 +366,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         adaPrice.setText(adaTempPrice);
         adaPrice.setForeground(Color.white);
         adaPrice.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 2;
+        c.gridx = 3;
         c.gridy = 3;
         c.insets = new Insets(20, -120, 40, 150);
         
@@ -358,7 +376,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         adaMC.setText(adaTempMC);
         adaMC.setForeground(Color.white);
         adaMC.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 3;
+        c.gridx = 4;
         c.gridy = 3;
         c.insets = new Insets(20, -50, 40, 80);
 
@@ -368,7 +386,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         adaCS.setText(adaTempCS);
         adaCS.setForeground(Color.white);
         adaCS.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 4;
+        c.gridx = 5;
         c.gridy = 3;
         c.insets = new Insets(20, -50, 40, 0);
         
@@ -386,12 +404,19 @@ public class PopularCrypto extends JFrame implements ActionListener{
 
         coinsPanel.add(solRank, c);
         
+        c.gridx = 1;
+        c.gridy = 2;
+        //c.insets = new Insets(0, 5, 5, 100);
+        //c.insets = new Insets(0, 0, 0, 0);
+        c.anchor = GridBagConstraints.EAST;
+        //coinsPanel.add(ethLabel,c);
+        
         c.anchor = GridBagConstraints.WEST;
         sol = new JLabel();
         sol.setText(solName + ":");
         sol.setForeground(Color.white);
         sol.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 1;
+        c.gridx = 2;
         c.gridy = 4;
         c.insets = new Insets(20, -120, 40, 150);
 
@@ -402,7 +427,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         solPrice.setForeground(Color.white);
         solPrice.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.EAST;
-        c.gridx = 2;
+        c.gridx = 3;
         c.gridy = 4;
         c.insets = new Insets(20, -120, 40, 150);
         
@@ -412,7 +437,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         solMC.setText(solTempMC);
         solMC.setForeground(Color.white);
         solMC.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 3;
+        c.gridx = 4;
         c.gridy = 4;
         c.insets = new Insets(20, -50, 40, 80);
 
@@ -422,7 +447,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         solCS.setText(solTempCS);
         solCS.setForeground(Color.white);
         solCS.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 4;
+        c.gridx = 5;
         c.gridy = 4;
         c.insets = new Insets(20, -50, 40, 0);
         
@@ -656,5 +681,4 @@ public class PopularCrypto extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
     }
-    
 }
