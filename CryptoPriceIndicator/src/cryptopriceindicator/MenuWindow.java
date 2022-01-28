@@ -108,9 +108,11 @@ public class MenuWindow extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == popularCrypto){
+            this.dispose();
             JFrame popularCrypto = new PopularCrypto();
         }
         if (e.getSource() == topTenCrypto){
+            this.dispose();
             JFrame topTenCrypto = new TopTenCrypto();
         }
         

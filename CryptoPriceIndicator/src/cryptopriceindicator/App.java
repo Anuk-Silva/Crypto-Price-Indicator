@@ -5,11 +5,11 @@
  */
 package cryptopriceindicator;
 
-import static cryptopriceindicator.TopTenCrypto.webScrape4thCoin;
-import static cryptopriceindicator.TopTenCrypto.webScrapeADA;
-import static cryptopriceindicator.TopTenCrypto.webScrapeBTC;
-import static cryptopriceindicator.TopTenCrypto.webScrapeETH;
 import javax.swing.UIManager;
+import static cryptopriceindicator.TopTenCrypto.webScrapeFirstCoin;
+import static cryptopriceindicator.TopTenCrypto.webScrapeSecondCoin;
+import static cryptopriceindicator.TopTenCrypto.webScrapeThirdCoin;
+import static cryptopriceindicator.TopTenCrypto.webScrapeFourthCoin;
 
 /**
  *
@@ -20,10 +20,10 @@ public class App {
     public static void main(String[] args) throws Exception{
         new MenuWindow();
         // TODO code application logic here
-        TopTenCrypto.webScrapeBTC();
-        TopTenCrypto.webScrapeETH();
-        TopTenCrypto.webScrapeADA();
-        TopTenCrypto.webScrape4thCoin();
+        TopTenCrypto.webScrapeFirstCoin();
+        TopTenCrypto.webScrapeSecondCoin();
+        TopTenCrypto.webScrapeThirdCoin();
+        TopTenCrypto.webScrapeFourthCoin();
         PopularCrypto.webScrapeBTC();
         PopularCrypto.webScrapeETH();
         PopularCrypto.webScrapeADA();

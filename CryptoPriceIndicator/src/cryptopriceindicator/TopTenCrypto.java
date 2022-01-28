@@ -35,70 +35,64 @@ public class TopTenCrypto extends JFrame implements ActionListener{
     
     private JPanel headerPanel;
     private JPanel coinsPanel;
-    
     private JLabel name;
     private JLabel price;
     private JLabel rank;
     private JLabel marketCap;
     private JLabel circulatingSupply;
     
-    private JLabel btcRank;
-    private JLabel btc;
-    private JLabel btcPrice;
-    private JLabel btcMC;
-    private JLabel btcCS;
-  
-    public static String[] btcRow;
-    public static String btcNameCell;
-    public static String btcName;
-    public static String btcTicker;
+    private JLabel firstCoinRank;
+    private JLabel firstCoin;
+    private JLabel firstCoinPrice;
+    private JLabel firstCoinMC;
+    private JLabel firstCoinCS;
+    public static String[] firstCoinRow;
+    public static String firstCoinNameCell;
+    public static String firstCoinName;
+    public static String firstCoinTicker;
+    public static String firstCoinTickerTrimmed;
+    public static String firstCoinTempPrice;
+    public static String firstCoinTempRank;
+    public static String firstCoinTempMC;
+    public static String firstCoinTempCS;
     
-    public static String btcTempPrice;
-    public static String btcTempRank;
-    public static String btcTempMC;
-    public static String btcTempCS;
+    private JLabel secondCoinRank;
+    private JLabel secondCoin;
+    private JLabel secondCoinPrice;
+    private JLabel secondCoinMC;
+    private JLabel secondCoinCS;
+    public static String[] secondCoinRow;
+    public static String secondCoinNameCell;
+    public static String secondCoinName;
+    public static String secondCoinTicker;
+    public static String secondCoinTickerTrimmed;
+    public static String secondCoinTempPrice;
+    public static String secondCoinTempRank;
+    public static String secondCoinTempMC;
+    public static String secondCoinTempCS;
     
-    private JLabel ethRank;
-    private JLabel eth;
-    private JLabel ethPrice;
-    private JLabel ethMC;
-    private JLabel ethCS;
-    
-    public static String[] ethRow;
-    public static String ethNameCell;
-    public static String ethName;
-    public static String ethTicker;
-    
-    public static String ethTempPrice;
-    public static String ethTempRank;
-    public static String ethTempMC;
-    public static String ethTempCS;
-    
-    private JLabel adaRank;
-    private JLabel ada;
-    private JLabel adaPrice;
-    private JLabel adaMC;
-    private JLabel adaCS;
-    
-    public static String[] adaRow;
-    public static String adaNameCell;
-    public static String adaName;
-    public static String adaTicker;
-    
-    public static String adaTempPrice;
-    public static String adaTempRank;
-    public static String adaTempMC;
-    public static String adaTempCS;
+    private JLabel thirdCoinRank;
+    private JLabel thirdCoin;
+    private JLabel thirdCoinPrice;
+    private JLabel thirdCoinMC;
+    private JLabel thirdCoinCS;
+    public static String[] thirdCoinRow;
+    public static String thirdCoinNameCell;
+    public static String thirdCoinName;
+    public static String thirdCoinTicker;
+    public static String thirdCoinTickerTrimmed;
+    public static String thirdCoinTempPrice;
+    public static String thirdCoinTempRank;
+    public static String thirdCoinTempMC;
+    public static String thirdCoinTempCS;
     
     private JLabel fourthCoinRank;
     private JLabel fourthCoin;
     private JLabel fourthCoinPrice;
     private JLabel fourthCoinMC;
     private JLabel fourthCoinCS;
-  
     public static String fourthCoinTicker;
     public static String fourthCoinTickerTrimmed;
-    
     public static String fourthCoinTempPrice;
     public static String fourthCoinTempRank;
     public static String fourthCoinTempMC;
@@ -178,164 +172,164 @@ public class TopTenCrypto extends JFrame implements ActionListener{
 
         coinsPanel.add(circulatingSupply, c);
         
-        btcRank = new JLabel();
-        btcRank.setText(btcTempRank);
-        btcRank.setForeground(Color.white);
-        btcRank.setFont(new Font("Arial", Font.BOLD, 25));
+        firstCoinRank = new JLabel();
+        firstCoinRank.setText(firstCoinTempRank);
+        firstCoinRank.setForeground(Color.white);
+        firstCoinRank.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 0;
         c.gridy = 1;
         c.insets = new Insets(20, -50, 40, 160);
         
-        coinsPanel.add(btcRank, c);
+        coinsPanel.add(firstCoinRank, c);
         
-        btc = new JLabel();
-        btc.setText(btcName + ":");
-        btc.setForeground(Color.white);
-        btc.setFont(new Font("Arial", Font.BOLD, 25));
+        firstCoin = new JLabel();
+        firstCoin.setText(firstCoinTickerTrimmed + ":");
+        firstCoin.setForeground(Color.white);
+        firstCoin.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
         c.gridx = 1;
         c.gridy = 1;
         c.insets = new Insets(20, -120, 40, 80);
 
-        coinsPanel.add(btc, c);
+        coinsPanel.add(firstCoin, c);
 
-        btcPrice = new JLabel();
-        btcPrice.setText(btcTempPrice);
-        btcPrice.setForeground(Color.white);
-        btcPrice.setFont(new Font("Arial", Font.BOLD, 25));
+        firstCoinPrice = new JLabel();
+        firstCoinPrice.setText(firstCoinTempPrice);
+        firstCoinPrice.setForeground(Color.white);
+        firstCoinPrice.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 2;
         c.gridy = 1;
         c.insets = new Insets(20, -120, 40, 150);
 
-        coinsPanel.add(btcPrice, c);
+        coinsPanel.add(firstCoinPrice, c);
         
-        btcMC = new JLabel();
-        btcMC.setText(btcTempMC);
-        btcMC.setForeground(Color.white);
-        btcMC.setFont(new Font("Arial", Font.BOLD, 25));
+        firstCoinMC = new JLabel();
+        firstCoinMC.setText(firstCoinTempMC);
+        firstCoinMC.setForeground(Color.white);
+        firstCoinMC.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 3;
         c.gridy = 1;
         c.insets = new Insets(20, -50, 40, 80);        
 
 
-        coinsPanel.add(btcMC, c);
+        coinsPanel.add(firstCoinMC, c);
         
-        btcCS = new JLabel();
-        btcCS.setText(btcTempCS);
-        btcCS.setForeground(Color.white);
-        btcCS.setFont(new Font("Arial", Font.BOLD, 25));
+        firstCoinCS = new JLabel();
+        firstCoinCS.setText(firstCoinTempCS);
+        firstCoinCS.setForeground(Color.white);
+        firstCoinCS.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.EAST;
         c.gridx = 4;
         c.gridy = 1;
         c.insets = new Insets(20, -50, 40, 0);
 
-        coinsPanel.add(btcCS, c);
+        coinsPanel.add(firstCoinCS, c);
         
         //2nd coin below
         
-        ethRank = new JLabel();
-        ethRank.setText(ethTempRank);
-        ethRank.setForeground(Color.white);
-        ethRank.setFont(new Font("Arial", Font.BOLD, 25));
+        secondCoinRank = new JLabel();
+        secondCoinRank.setText(secondCoinTempRank);
+        secondCoinRank.setForeground(Color.white);
+        secondCoinRank.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 0;
         c.gridy = 2;
         c.insets = new Insets(20, -50, 40, 160);
 
-        coinsPanel.add(ethRank, c);
+        coinsPanel.add(secondCoinRank, c);
         
-        eth = new JLabel();
-        eth.setText(ethName + ":");
-        eth.setForeground(Color.white);
-        eth.setFont(new Font("Arial", Font.BOLD, 25));
+        secondCoin = new JLabel();
+        secondCoin.setText(secondCoinTickerTrimmed + ":");
+        secondCoin.setForeground(Color.white);
+        secondCoin.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
         c.gridx = 1;
         c.gridy = 2;
         c.insets = new Insets(20, -120, 40, 150);
 
-        coinsPanel.add(eth, c);
+        coinsPanel.add(secondCoin, c);
         c.anchor = GridBagConstraints.EAST;
 
-        ethPrice = new JLabel();
-        ethPrice.setText(ethTempPrice);
-        ethPrice.setForeground(Color.white);
-        ethPrice.setFont(new Font("Arial", Font.BOLD, 25));
+        secondCoinPrice = new JLabel();
+        secondCoinPrice.setText(secondCoinTempPrice);
+        secondCoinPrice.setForeground(Color.white);
+        secondCoinPrice.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 2;
         c.gridy = 2;
         c.insets = new Insets(20, -120, 40, 150);
         
-        coinsPanel.add(ethPrice, c);
+        coinsPanel.add(secondCoinPrice, c);
         
-        ethMC = new JLabel();
-        ethMC.setText(ethTempMC);
-        ethMC.setForeground(Color.white);
-        ethMC.setFont(new Font("Arial", Font.BOLD, 25));
+        secondCoinMC = new JLabel();
+        secondCoinMC.setText(secondCoinTempMC);
+        secondCoinMC.setForeground(Color.white);
+        secondCoinMC.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 3;
         c.gridy = 2;
         c.insets = new Insets(20, -50, 40, 80);
 
-        coinsPanel.add(ethMC, c);
+        coinsPanel.add(secondCoinMC, c);
         
-        ethCS = new JLabel();
-        ethCS.setText(ethTempCS);
-        ethCS.setForeground(Color.white);
-        ethCS.setFont(new Font("Arial", Font.BOLD, 25));
+        secondCoinCS = new JLabel();
+        secondCoinCS.setText(secondCoinTempCS);
+        secondCoinCS.setForeground(Color.white);
+        secondCoinCS.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 4;
         c.gridy = 2;
         c.insets = new Insets(20, -50, 40, 0);
         
-        coinsPanel.add(ethCS, c);
+        coinsPanel.add(secondCoinCS, c);
         
         //3rd coin below
         
-        adaRank = new JLabel();
-        adaRank.setText(adaTempRank);
-        adaRank.setForeground(Color.white);
-        adaRank.setFont(new Font("Arial", Font.BOLD, 25));
+        thirdCoinRank = new JLabel();
+        thirdCoinRank.setText(thirdCoinTempRank);
+        thirdCoinRank.setForeground(Color.white);
+        thirdCoinRank.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 0;
         c.gridy = 3;
         c.insets = new Insets(20, -50, 40, 160);
 
-        coinsPanel.add(adaRank, c);
+        coinsPanel.add(thirdCoinRank, c);
         c.anchor = GridBagConstraints.WEST;
-        ada = new JLabel();
-        ada.setText(adaName + ":");
-        ada.setForeground(Color.white);
-        ada.setFont(new Font("Arial", Font.BOLD, 25));
+        thirdCoin = new JLabel();
+        thirdCoin.setText(thirdCoinTickerTrimmed + ":");
+        thirdCoin.setForeground(Color.white);
+        thirdCoin.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 1;
         c.gridy = 3;
         c.insets = new Insets(20, -120, 40, 150);
 
-        coinsPanel.add(ada, c);
+        coinsPanel.add(thirdCoin, c);
         c.anchor = GridBagConstraints.EAST;
-        adaPrice = new JLabel();
-        adaPrice.setText(adaTempPrice);
-        adaPrice.setForeground(Color.white);
-        adaPrice.setFont(new Font("Arial", Font.BOLD, 25));
+        thirdCoinPrice = new JLabel();
+        thirdCoinPrice.setText(thirdCoinTempPrice);
+        thirdCoinPrice.setForeground(Color.white);
+        thirdCoinPrice.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 2;
         c.gridy = 3;
         c.insets = new Insets(20, -120, 40, 150);
         
-        coinsPanel.add(adaPrice, c);
+        coinsPanel.add(thirdCoinPrice, c);
         
-        adaMC = new JLabel();
-        adaMC.setText(adaTempMC);
-        adaMC.setForeground(Color.white);
-        adaMC.setFont(new Font("Arial", Font.BOLD, 25));
+        thirdCoinMC = new JLabel();
+        thirdCoinMC.setText(thirdCoinTempMC);
+        thirdCoinMC.setForeground(Color.white);
+        thirdCoinMC.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 3;
         c.gridy = 3;
         c.insets = new Insets(20, -50, 40, 80);
 
-        coinsPanel.add(adaMC, c);
+        coinsPanel.add(thirdCoinMC, c);
         
-        adaCS = new JLabel();
-        adaCS.setText(adaTempCS);
-        adaCS.setForeground(Color.white);
-        adaCS.setFont(new Font("Arial", Font.BOLD, 25));
+        thirdCoinCS = new JLabel();
+        thirdCoinCS.setText(thirdCoinTempCS);
+        thirdCoinCS.setForeground(Color.white);
+        thirdCoinCS.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 4;
         c.gridy = 3;
         c.insets = new Insets(20, -50, 40, 0);
         
-        coinsPanel.add(adaCS, c);
+        coinsPanel.add(thirdCoinCS, c);
         
         //Fourth Coin below
         
@@ -440,7 +434,8 @@ public class TopTenCrypto extends JFrame implements ActionListener{
         this.setVisible(true);
     }
     
-    static void webScrapeBTC() {
+    static void webScrapeFirstCoin() {
+        int count = 0;
         final String url = "https://coinmarketcap.com/";
 
         try {
@@ -451,38 +446,28 @@ public class TopTenCrypto extends JFrame implements ActionListener{
                 if (row.select("td:nth-of-type(3)").text().equals("")) {
                     continue;
                 } else {
-                    btcNameCell = row.select("td:nth-of-type(3)").text(); //Gets data from the Name cell of the given row
-                    if (btcNameCell.contains("Bitcoin"))
-                    {
-                        btcRow = btcNameCell.split(" ");
-                        btcName = btcRow[0];
-                        System.out.println(btcName);
-                        btcTicker = btcRow[2];
-                        System.out.println(btcTicker);
-                        btcName = btcName + " " + btcTicker;
-                        System.out.println(btcName);
-                        btcNameCell = btcNameCell.split(" ")[0];
-                        System.out.println("This is Bitcoin");
-                        System.out.println(btcNameCell);
+                    String num1ToRemove = "1";
+                    firstCoinTicker = row.select("td:nth-of-type(3)").text();
+                    firstCoinTickerTrimmed = firstCoinTicker.substring(0, firstCoinTicker.length() - 3);
+                    System.out.println(firstCoinTicker.substring(0, firstCoinTicker.length() - 3));
+                    if (firstCoinTickerTrimmed.contains(num1ToRemove)) {
+                        firstCoinTickerTrimmed = firstCoinTickerTrimmed.replaceAll(num1ToRemove, "");
                     }
-                    else{
-                        System.out.println("This is not Bitcoin");
-                    }
+                    firstCoinTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(firstCoinTempPrice);
                     
-                    btcTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(btcTempPrice);
+                    firstCoinTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(firstCoinTempRank);
                     
-                    btcTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(btcTempRank);
+                    firstCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(firstCoinTempMC);
                     
-                    btcTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(btcTempMC);
-                    
-                    btcTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(btcTempCS);
+                    firstCoinTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(firstCoinTempCS);
                     
                 }
-                if(btcNameCell.contains("Bitcoin")){
+                count++;
+                if (count == 1) {
                     break;
                 }
             }
@@ -491,7 +476,8 @@ public class TopTenCrypto extends JFrame implements ActionListener{
         }
     }
     
-    static void webScrapeETH() {
+    static void webScrapeSecondCoin() {
+        int count = 0;
         final String url = "https://coinmarketcap.com/";
 
         try {
@@ -502,38 +488,28 @@ public class TopTenCrypto extends JFrame implements ActionListener{
                 if (row.select("td:nth-of-type(3)").text().equals("")) {
                     continue;
                 } else {
-                    ethNameCell = row.select("td:nth-of-type(3)").text(); //Gets data from the Name cell of the given row
-                    if (ethNameCell.contains("Ethereum"))
-                    {
-                        ethRow = ethNameCell.split(" ");
-                        ethName = ethRow[0];
-                        System.out.println(ethName);
-                        ethTicker = ethRow[2];
-                        System.out.println(ethTicker);
-                        ethName = ethName + " " + ethTicker;
-                        System.out.println(ethName);
-                        ethNameCell = ethNameCell.split(" ")[0];
-                        System.out.println("This is Ethereum");
-                        System.out.println(ethNameCell);
+                    String num1ToRemove = "2";
+                    secondCoinTicker = row.select("td:nth-of-type(3)").text();
+                    secondCoinTickerTrimmed = secondCoinTicker.substring(0, secondCoinTicker.length() - 3);
+                    System.out.println(secondCoinTicker.substring(0, secondCoinTicker.length() - 3));
+                    if (secondCoinTickerTrimmed.contains(num1ToRemove)) {
+                        secondCoinTickerTrimmed = secondCoinTickerTrimmed.replaceAll(num1ToRemove, "");
                     }
-                    else{
-                        System.out.println("This is not Ethereum");
-                    }
+                    secondCoinTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(secondCoinTempPrice);
                     
-                    ethTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(ethTempPrice);
+                    secondCoinTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(secondCoinTempRank);
                     
-                    ethTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(ethTempRank);
+                    secondCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(secondCoinTempMC);
                     
-                    ethTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(ethTempMC);
-                    
-                    ethTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(ethTempCS);
+                    secondCoinTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(secondCoinTempCS);
                     
                 }
-                if(ethNameCell.contains("Ethereum")){
+                count++;
+                if (count == 2) {
                     break;
                 }
             }
@@ -542,7 +518,8 @@ public class TopTenCrypto extends JFrame implements ActionListener{
         }
     }
     
-    static void webScrapeADA() {
+    static void webScrapeThirdCoin() {
+        int count = 0;
         final String url = "https://coinmarketcap.com/";
 
         try {
@@ -553,38 +530,28 @@ public class TopTenCrypto extends JFrame implements ActionListener{
                 if (row.select("td:nth-of-type(3)").text().equals("")) {
                     continue;
                 } else {
-                    adaNameCell = row.select("td:nth-of-type(3)").text(); //Gets data from the Name cell of the given row
-                    if (adaNameCell.contains("Cardano"))
-                    {
-                        adaRow = adaNameCell.split(" ");
-                        adaName = adaRow[0];
-                        System.out.println(adaName);
-                        adaTicker = adaRow[2];
-                        System.out.println(adaTicker);
-                        adaName = adaName + " " + adaTicker;
-                        System.out.println(adaName);
-                        adaNameCell = adaNameCell.split(" ")[0];
-                        System.out.println("This is Ethereum");
-                        System.out.println(adaNameCell);
+                    String num3ToRemove = "3";
+                    thirdCoinTicker = row.select("td:nth-of-type(3)").text();
+                    thirdCoinTickerTrimmed = thirdCoinTicker.substring(0, thirdCoinTicker.length() - 3);
+                    System.out.println(thirdCoinTicker.substring(0, thirdCoinTicker.length() - 3));
+                    if (thirdCoinTickerTrimmed.contains(num3ToRemove)) {
+                        thirdCoinTickerTrimmed = thirdCoinTickerTrimmed.replaceAll(num3ToRemove, "");
                     }
-                    else{
-                        System.out.println("This is not Ethereum");
-                    }
+                    thirdCoinTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(thirdCoinTempPrice);
                     
-                    adaTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(adaTempPrice);
+                    thirdCoinTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(thirdCoinTempRank);
                     
-                    adaTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(adaTempRank);
+                    thirdCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(thirdCoinTempMC);
                     
-                    adaTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(adaTempMC);
-                    
-                    adaTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(adaTempCS);
+                    thirdCoinTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(thirdCoinTempCS);
                     
                 }
-                if(adaNameCell.contains("Cardano")){
+                count++;
+                if (count == 3) {
                     break;
                 }
             }
@@ -593,7 +560,7 @@ public class TopTenCrypto extends JFrame implements ActionListener{
         }
     }
     
-    static void webScrape4thCoin() {
+    static void webScrapeFourthCoin() {
         int count = 0;
         final String url = "https://coinmarketcap.com/";
 
@@ -640,10 +607,10 @@ public class TopTenCrypto extends JFrame implements ActionListener{
      */
     /*public static void main(String[] args) throws Exception{
         // TODO code application logic here
-        webScrapeBTC();
-        webScrapeETH();
-        webScrapeADA();
-        webScrape4thCoin();
+        webScrapeFirstCoin();
+        webScrapeSecondCoin();
+        webScrapeThirdCoin();
+        webScrapeFourthCoin();
         
         String str = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
         //String str = "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";

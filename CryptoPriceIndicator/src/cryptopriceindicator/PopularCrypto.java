@@ -11,11 +11,19 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -106,6 +114,16 @@ public class PopularCrypto extends JFrame implements ActionListener{
     public static String solTempMC;
     public static String solTempCS;
     
+    BufferedImage btcPic = null;
+    ImageIcon btcIcon;
+    JLabel btcLabel;
+    BufferedImage ethPic = null;
+    JLabel ethLabel;
+    BufferedImage adaPic = null;
+    JLabel adaLabel;
+        
+
+    
     public PopularCrypto(){
         
         this.setResizable(false);
@@ -114,6 +132,16 @@ public class PopularCrypto extends JFrame implements ActionListener{
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Popular Cryptocurrencies and Prices");
+        
+        try {
+            btcPic = ImageIO.read(new File("src/crypto_icons/btc.png"));
+            ethPic = ImageIO.read(new File("src/crypto_icons/eth.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(PopularCrypto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        btcLabel = new JLabel(new ImageIcon(btcPic));
+        ethLabel = new JLabel(new ImageIcon(btcPic));
+        
         
         headerPanel = new JPanel(new GridBagLayout());
         coinsPanel = new JPanel(new GridBagLayout());
@@ -140,7 +168,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         name.setForeground(Color.white);
         name.setFont(new Font("Arial", Font.BOLD, 25));
         //c.anchor = GridBagConstraints.WEST;
-        c.gridx = 1;
+        c.gridx = 2;
         c.gridy = 0;
         c.insets = new Insets(20, -120, 40, 150);
 
@@ -151,7 +179,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         price.setForeground(Color.white);
         price.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.EAST;
-        c.gridx = 2;
+        c.gridx = 3;
         c.gridy = 0;
         c.insets = new Insets(20, -120, 40, 150);
 
@@ -161,7 +189,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         marketCap.setToolTipText("The total market value of a cryptocurrency's circulating supply. It is analogous to the free-float capitalization in the stock market.");
         marketCap.setForeground(Color.white);
         marketCap.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 3;
+        c.gridx = 4;
         c.gridy = 0;
         c.insets = new Insets(20, -50, 40, 80);
 
@@ -171,7 +199,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         circulatingSupply.setToolTipText("The amount of coins that are circulating in the market and are in public hands.");
         circulatingSupply.setForeground(Color.white);
         circulatingSupply.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 4;
+        c.gridx = 5;
         c.gridy = 0;
         c.insets = new Insets(20, -50, 40, 0);
 
@@ -189,12 +217,19 @@ public class PopularCrypto extends JFrame implements ActionListener{
         
         coinsPanel.add(btcRank, c);
         
+        c.gridx = 1;
+        c.gridy = 1;
+        //c.insets = new Insets(0, 5, 5, 100);
+        //c.insets = new Insets(0, 0, 0, 0);
+        c.anchor = GridBagConstraints.EAST;
+        coinsPanel.add(btcLabel,c);
+        
         btc = new JLabel();
         btc.setText(btcName + ":");
         btc.setForeground(Color.white);
         btc.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.WEST;
-        c.gridx = 1;
+        c.gridx = 2;
         c.gridy = 1;
         c.insets = new Insets(20, -120, 40, 80);
 
@@ -204,7 +239,8 @@ public class PopularCrypto extends JFrame implements ActionListener{
         btcPrice.setText(btcTempPrice);
         btcPrice.setForeground(Color.white);
         btcPrice.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 2;
+        c.anchor = GridBagConstraints.EAST;
+        c.gridx = 3;
         c.gridy = 1;
         c.insets = new Insets(20, -120, 40, 150);
 
@@ -214,7 +250,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         btcMC.setText(btcTempMC);
         btcMC.setForeground(Color.white);
         btcMC.setFont(new Font("Arial", Font.BOLD, 25));
-        c.gridx = 3;
+        c.gridx = 4;
         c.gridy = 1;
         c.insets = new Insets(20, -50, 40, 80);        
 
@@ -226,7 +262,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         btcCS.setForeground(Color.white);
         btcCS.setFont(new Font("Arial", Font.BOLD, 25));
         c.anchor = GridBagConstraints.EAST;
-        c.gridx = 4;
+        c.gridx = 5;
         c.gridy = 1;
         c.insets = new Insets(20, -50, 40, 0);
 
@@ -391,54 +427,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         c.insets = new Insets(20, -50, 40, 0);
         
         coinsPanel.add(solCS, c);
-        
-        /*
-        START***
-        GridBagConstraints separatorConstraint = new GridBagConstraints();
-        separatorConstraint.anchor = GridBagConstraints.WEST;
-        separatorConstraint.gridx = 0;
-        separatorConstraint.gridy = 1;
-        //separatorConstraint.weightx = 1.0;
-        separatorConstraint.fill = GridBagConstraints.HORIZONTAL;
-        separatorConstraint.gridwidth = GridBagConstraints.REMAINDER;
-        //separatorConstraint.gridwidth = GridBagConstraints.REMAINDER;
-        
-        JSeparator sep = new JSeparator();
-        sep.setPreferredSize(new Dimension(30, 100));
-        sep.setBackground(Color.black);
-        
-        coinsPanel.add(sep, separatorConstraint);
-        //coinsPanel.add(new JSeparator(JSeparator.HORIZONTAL), separatorConstraint);
-        END***
-        */
-        
-        /*
-        Border border = BorderFactory.createLineBorder(Color.BLACK, 5);
-        c.insets = new Insets(100, 0, 100, 100);
-        c.gridx = 0;
-        c.gridy = 5;
-        //c.anchor = GridBagConstraints.EAST;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        //c.gridwidth = GridBagConstraints.REMAINDER;
-        //c.gridwidth = GridBagConstraints.RELATIVE;
-        //c.gridwidth = 50;
-        
-        JSeparator sep = new JSeparator();
-        sep.setBorder(border);
-        //sep.setPreferredSize(new Dimension(700,10));
-        sep.setBackground(Color.black);
-        
-        coinsPanel.add(sep,c);
-        */
-        
-        Border border = BorderFactory.createLineBorder(Color.BLACK, 5);
-        JSeparator sep = new JSeparator();
-        sep.setBorder(border);
-        sep.setPreferredSize(new Dimension(10000,10));
-        sep.setBackground(Color.black);
-        
-        
-        //pack();
+
         this.setVisible(true);
     }
     
