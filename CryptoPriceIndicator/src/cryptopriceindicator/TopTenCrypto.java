@@ -292,7 +292,8 @@ public class TopTenCrypto extends JFrame implements ActionListener{
         coinsPanel.add(thirdCoinRank, c);
         c.anchor = GridBagConstraints.WEST;
         thirdCoin = new JLabel();
-        thirdCoin.setText(thirdCoinTickerTrimmed + ":");
+        thirdCoin.setText(thirdCoinTicker + ":");
+        //thirdCoin.setText(thirdCoinTickerTrimmed + ":");
         thirdCoin.setForeground(Color.white);
         thirdCoin.setFont(new Font("Arial", Font.BOLD, 25));
         c.gridx = 1;
@@ -384,45 +385,6 @@ public class TopTenCrypto extends JFrame implements ActionListener{
         c.insets = new Insets(20, -50, 40, 0);
         
         coinsPanel.add(fourthCoinCS, c);
-        
-        /*
-        START***
-        GridBagConstraints separatorConstraint = new GridBagConstraints();
-        separatorConstraint.anchor = GridBagConstraints.WEST;
-        separatorConstraint.gridx = 0;
-        separatorConstraint.gridy = 1;
-        //separatorConstraint.weightx = 1.0;
-        separatorConstraint.fill = GridBagConstraints.HORIZONTAL;
-        separatorConstraint.gridwidth = GridBagConstraints.REMAINDER;
-        //separatorConstraint.gridwidth = GridBagConstraints.REMAINDER;
-        
-        JSeparator sep = new JSeparator();
-        sep.setPreferredSize(new Dimension(30, 100));
-        sep.setBackground(Color.black);
-        
-        coinsPanel.add(sep, separatorConstraint);
-        //coinsPanel.add(new JSeparator(JSeparator.HORIZONTAL), separatorConstraint);
-        END***
-        */
-        
-        /*
-        Border border = BorderFactory.createLineBorder(Color.BLACK, 5);
-        c.insets = new Insets(100, 0, 100, 100);
-        c.gridx = 0;
-        c.gridy = 5;
-        //c.anchor = GridBagConstraints.EAST;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        //c.gridwidth = GridBagConstraints.REMAINDER;
-        //c.gridwidth = GridBagConstraints.RELATIVE;
-        //c.gridwidth = 50;
-        
-        JSeparator sep = new JSeparator();
-        sep.setBorder(border);
-        //sep.setPreferredSize(new Dimension(700,10));
-        sep.setBackground(Color.black);
-        
-        coinsPanel.add(sep,c);
-        */
         
         Border border = BorderFactory.createLineBorder(Color.BLACK, 5);
         JSeparator sep = new JSeparator();
@@ -532,10 +494,12 @@ public class TopTenCrypto extends JFrame implements ActionListener{
                 } else {
                     String num3ToRemove = "3";
                     thirdCoinTicker = row.select("td:nth-of-type(3)").text();
-                    thirdCoinTickerTrimmed = thirdCoinTicker.substring(0, thirdCoinTicker.length() - 3);
-                    System.out.println(thirdCoinTicker.substring(0, thirdCoinTicker.length() - 3));
-                    if (thirdCoinTickerTrimmed.contains(num3ToRemove)) {
-                        thirdCoinTickerTrimmed = thirdCoinTickerTrimmed.replaceAll(num3ToRemove, "");
+                    System.out.println(thirdCoinTicker);
+                    if(thirdCoinTicker.contains("Buy")){
+                        thirdCoinTicker = thirdCoinTicker.substring(0, thirdCoinTicker.length() - 3);
+                    }
+                    if (thirdCoinTicker.contains(num3ToRemove)) {
+                        thirdCoinTicker = thirdCoinTicker.replaceAll(num3ToRemove, "");
                     }
                     thirdCoinTempPrice = row.select("td:nth-of-type(4)").text();
                     System.out.println(thirdCoinTempPrice);
