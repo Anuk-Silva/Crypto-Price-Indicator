@@ -30,6 +30,7 @@ public class App {
         PopularCrypto.webScrapeADA();
         PopularCrypto.webScrapeSOL();
         PopularCrypto.webScrapeXRP();
+        PopularCrypto.webScrapeDOGE();
         
         String str = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
         //String str = "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";

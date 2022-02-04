@@ -147,6 +147,22 @@ public class PopularCrypto extends JFrame implements ActionListener{
     public static String xrpTempMC;
     public static String xrpTempCS;
     
+    private JLabel dogeRank;
+    private JLabel doge;
+    private JLabel dogePrice;
+    private JLabel dogeMC;
+    private JLabel dogeCS;
+  
+    public static String[] dogeRow;
+    public static String dogeNameCell;
+    public static String dogeName;
+    public static String dogeTicker;
+    
+    public static String dogeTempPrice;
+    public static String dogeTempRank;
+    public static String dogeTempMC;
+    public static String dogeTempCS;
+    
     BufferedImage btcPic = null;
     JLabel btcLabel;
     BufferedImage ethPic = null;
@@ -159,9 +175,9 @@ public class PopularCrypto extends JFrame implements ActionListener{
     JLabel solLabel;
     BufferedImage xrpPic = null;
     JLabel xrpLabel;
+    BufferedImage dogePic = null;
+    JLabel dogeLabel;
         
-
-    
     public PopularCrypto(){
         
         this.setResizable(false);
@@ -178,6 +194,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
             adaPic = ImageIO.read(new File("src/crypto_icons/ada.png"));
             solPic = ImageIO.read(new File("src/crypto_icons/sol.png"));
             xrpPic = ImageIO.read(new File("src/crypto_icons/xrp.png"));
+            dogePic = ImageIO.read(new File("src/crypto_icons/doge.png"));
         } catch (IOException ex) {
             Logger.getLogger(PopularCrypto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -187,6 +204,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         adaLabel = new JLabel(new ImageIcon(adaPic));
         solLabel = new JLabel(new ImageIcon(solPic));
         xrpLabel = new JLabel(new ImageIcon(xrpPic));
+        dogeLabel = new JLabel(new ImageIcon(dogePic));
         
         headerPanel = new JPanel(new GridBagLayout());
         coinsPanel = new JPanel(new GridBagLayout());
@@ -613,6 +631,66 @@ public class PopularCrypto extends JFrame implements ActionListener{
         
         coinsPanel.add(xrpCS, c);
         
+        //DogeCoin Below
+        
+        dogeRank = new JLabel();
+        dogeRank.setText(dogeTempRank);
+        dogeRank.setForeground(Color.white);
+        dogeRank.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 0;
+        c.gridy = 7;
+        c.insets = new Insets(20, -50, 40, 160);
+
+        coinsPanel.add(dogeRank, c);
+        
+        c.gridx = 1;
+        c.gridy = 7;
+        //c.insets = new Insets(0, 5, 5, 100);
+        c.anchor = GridBagConstraints.EAST;
+        coinsPanel.add(dogeLabel,c);
+        
+        c.anchor = GridBagConstraints.WEST;
+        doge = new JLabel();
+        doge.setText(dogeName + ":");
+        doge.setForeground(Color.white);
+        doge.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 2;
+        c.gridy = 7;
+        c.insets = new Insets(20, -120, 40, 150);
+
+        coinsPanel.add(doge, c);
+
+        dogePrice = new JLabel();
+        dogePrice.setText(dogeTempPrice);
+        dogePrice.setForeground(Color.white);
+        dogePrice.setFont(new Font("Arial", Font.BOLD, 25));
+        c.anchor = GridBagConstraints.EAST;
+        c.gridx = 3;
+        c.gridy = 7;
+        c.insets = new Insets(20, -120, 40, 150);
+        
+        coinsPanel.add(dogePrice, c);
+        
+        dogeMC = new JLabel();
+        dogeMC.setText(dogeTempMC);
+        dogeMC.setForeground(Color.white);
+        dogeMC.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 4;
+        c.gridy = 7;
+        c.insets = new Insets(20, -50, 40, 80);
+
+        coinsPanel.add(dogeMC, c);
+        
+        dogeCS = new JLabel();
+        dogeCS.setText(dogeTempCS);
+        dogeCS.setForeground(Color.white);
+        dogeCS.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 5;
+        c.gridy = 7;
+        c.insets = new Insets(20, -50, 40, 0);
+        
+        coinsPanel.add(dogeCS, c);
+        
         JScrollPane scrollPane = new JScrollPane(coinsPanel);
         add(scrollPane);
 
@@ -917,6 +995,57 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     
                 }
                 if(xrpNameCell.contains("XRP")){
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    static void webScrapeDOGE() {
+        final String url = "https://coinmarketcap.com/";
+
+        try {
+            final Document document = Jsoup.connect(url).userAgent("Mozilla/17.0").timeout(10000).get();
+
+            for (Element row : document.select(
+                    "table.h7vnx2-2.czTsgW.cmc-table tr")) {
+                if (row.select("td:nth-of-type(3)").text().equals("")) {
+                    continue;
+                } else {
+                    dogeNameCell = row.select("td:nth-of-type(3)").text(); //Gets data from the Name cell of the given row
+                    if (dogeNameCell.contains("Dogecoin"))
+                    {
+                        dogeRow = dogeNameCell.split(" ");
+                        dogeName = dogeRow[0];
+                        System.out.println(dogeName);
+                        dogeTicker = dogeRow[2];
+                        System.out.println(dogeTicker);
+                        dogeName = dogeName + " " + dogeTicker;
+                        System.out.println(dogeName);
+                        dogeNameCell = dogeNameCell.split(" ")[0];
+                        System.out.println("This is DOGE");
+                        System.out.println(dogeNameCell);
+                    }
+                    else{
+                        System.out.println("This is not Dogecoin");
+                    }
+                    
+                    dogeTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(dogeTempPrice);
+                    
+                    dogeTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(dogeTempRank);
+                    
+                    dogeTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(dogeTempMC);
+                    
+                    dogeTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(dogeTempCS);
+                    
+                }
+                if(dogeNameCell.contains("Dogecoin")){
                     break;
                 }
             }
