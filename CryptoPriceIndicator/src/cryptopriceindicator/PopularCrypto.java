@@ -131,6 +131,22 @@ public class PopularCrypto extends JFrame implements ActionListener{
     public static String solTempMC;
     public static String solTempCS;
     
+    private JLabel xrpRank;
+    private JLabel xrp;
+    private JLabel xrpPrice;
+    private JLabel xrpMC;
+    private JLabel xrpCS;
+  
+    public static String[] xrpRow;
+    public static String xrpNameCell;
+    public static String xrpName;
+    public static String xrpTicker;
+    
+    public static String xrpTempPrice;
+    public static String xrpTempRank;
+    public static String xrpTempMC;
+    public static String xrpTempCS;
+    
     BufferedImage btcPic = null;
     JLabel btcLabel;
     BufferedImage ethPic = null;
@@ -141,6 +157,8 @@ public class PopularCrypto extends JFrame implements ActionListener{
     JLabel adaLabel;
     BufferedImage solPic = null;
     JLabel solLabel;
+    BufferedImage xrpPic = null;
+    JLabel xrpLabel;
         
 
     
@@ -153,14 +171,13 @@ public class PopularCrypto extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Popular Cryptocurrencies and Prices");
         
-        
-        
         try {
             btcPic = ImageIO.read(new File("src/crypto_icons/btc.png"));
             ethPic = ImageIO.read(new File("src/crypto_icons/eth.png"));
             bnbPic = ImageIO.read(new File("src/crypto_icons/bnb.png"));
             adaPic = ImageIO.read(new File("src/crypto_icons/ada.png"));
             solPic = ImageIO.read(new File("src/crypto_icons/sol.png"));
+            xrpPic = ImageIO.read(new File("src/crypto_icons/xrp.png"));
         } catch (IOException ex) {
             Logger.getLogger(PopularCrypto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -169,6 +186,7 @@ public class PopularCrypto extends JFrame implements ActionListener{
         bnbLabel = new JLabel(new ImageIcon(bnbPic));
         adaLabel = new JLabel(new ImageIcon(adaPic));
         solLabel = new JLabel(new ImageIcon(solPic));
+        xrpLabel = new JLabel(new ImageIcon(xrpPic));
         
         headerPanel = new JPanel(new GridBagLayout());
         coinsPanel = new JPanel(new GridBagLayout());
@@ -194,7 +212,6 @@ public class PopularCrypto extends JFrame implements ActionListener{
         name = new JLabel("Name");
         name.setForeground(Color.white);
         name.setFont(new Font("Arial", Font.BOLD, 25));
-        //c.anchor = GridBagConstraints.WEST;
         c.gridx = 2;
         c.gridy = 0;
         c.insets = new Insets(20, -120, 40, 150);
@@ -536,6 +553,66 @@ public class PopularCrypto extends JFrame implements ActionListener{
         
         coinsPanel.add(solCS, c);
         
+        //XRP Below
+        
+        xrpRank = new JLabel();
+        xrpRank.setText(xrpTempRank);
+        xrpRank.setForeground(Color.white);
+        xrpRank.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 0;
+        c.gridy = 6;
+        c.insets = new Insets(20, -50, 40, 160);
+
+        coinsPanel.add(xrpRank, c);
+        
+        c.gridx = 1;
+        c.gridy = 6;
+        //c.insets = new Insets(0, 5, 5, 100);
+        c.anchor = GridBagConstraints.EAST;
+        coinsPanel.add(xrpLabel,c);
+        
+        c.anchor = GridBagConstraints.WEST;
+        xrp = new JLabel();
+        xrp.setText(xrpName + ":");
+        xrp.setForeground(Color.white);
+        xrp.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 2;
+        c.gridy = 6;
+        c.insets = new Insets(20, -120, 40, 150);
+
+        coinsPanel.add(xrp, c);
+
+        xrpPrice = new JLabel();
+        xrpPrice.setText(xrpTempPrice);
+        xrpPrice.setForeground(Color.white);
+        xrpPrice.setFont(new Font("Arial", Font.BOLD, 25));
+        c.anchor = GridBagConstraints.EAST;
+        c.gridx = 3;
+        c.gridy = 6;
+        c.insets = new Insets(20, -120, 40, 150);
+        
+        coinsPanel.add(xrpPrice, c);
+        
+        xrpMC = new JLabel();
+        xrpMC.setText(xrpTempMC);
+        xrpMC.setForeground(Color.white);
+        xrpMC.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 4;
+        c.gridy = 6;
+        c.insets = new Insets(20, -50, 40, 80);
+
+        coinsPanel.add(xrpMC, c);
+        
+        xrpCS = new JLabel();
+        xrpCS.setText(xrpTempCS);
+        xrpCS.setForeground(Color.white);
+        xrpCS.setFont(new Font("Arial", Font.BOLD, 25));
+        c.gridx = 5;
+        c.gridy = 6;
+        c.insets = new Insets(20, -50, 40, 0);
+        
+        coinsPanel.add(xrpCS, c);
+        
         JScrollPane scrollPane = new JScrollPane(coinsPanel);
         add(scrollPane);
 
@@ -789,6 +866,57 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     
                 }
                 if(solNameCell.contains("Solana")){
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    static void webScrapeXRP() {
+        final String url = "https://coinmarketcap.com/";
+
+        try {
+            final Document document = Jsoup.connect(url).userAgent("Mozilla/17.0").timeout(10000).get();
+
+            for (Element row : document.select(
+                    "table.h7vnx2-2.czTsgW.cmc-table tr")) {
+                if (row.select("td:nth-of-type(3)").text().equals("")) {
+                    continue;
+                } else {
+                    xrpNameCell = row.select("td:nth-of-type(3)").text(); //Gets data from the Name cell of the given row
+                    if (xrpNameCell.contains("XRP"))
+                    {
+                        xrpRow = xrpNameCell.split(" ");
+                        xrpName = xrpRow[0];
+                        System.out.println(xrpName);
+                        xrpTicker = xrpRow[2];
+                        System.out.println(xrpTicker);
+                        xrpName = xrpName + " " + xrpTicker;
+                        System.out.println(xrpName);
+                        xrpNameCell = xrpNameCell.split(" ")[0];
+                        System.out.println("This is XRP");
+                        System.out.println(xrpNameCell);
+                    }
+                    else{
+                        System.out.println("This is not XRP");
+                    }
+                    
+                    xrpTempPrice = row.select("td:nth-of-type(4)").text();
+                    System.out.println(xrpTempPrice);
+                    
+                    xrpTempRank = row.select("td:nth-of-type(2)").text();
+                    System.out.println(xrpTempRank);
+                    
+                    xrpTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
+                    System.out.println(xrpTempMC);
+                    
+                    xrpTempCS = row.select("td:nth-of-type(9)").text();
+                    System.out.println(xrpTempCS);
+                    
+                }
+                if(xrpNameCell.contains("XRP")){
                     break;
                 }
             }
