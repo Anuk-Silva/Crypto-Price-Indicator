@@ -411,21 +411,21 @@ public class TopTenCrypto extends JFrame implements ActionListener{
                     String num1ToRemove = "1";
                     firstCoinTicker = row.select("td:nth-of-type(3)").text();
                     firstCoinTickerTrimmed = firstCoinTicker.substring(0, firstCoinTicker.length() - 3);
-                    System.out.println(firstCoinTicker.substring(0, firstCoinTicker.length() - 3));
+                    //System.out.println(firstCoinTicker.substring(0, firstCoinTicker.length() - 3));
                     if (firstCoinTickerTrimmed.contains(num1ToRemove)) {
                         firstCoinTickerTrimmed = firstCoinTickerTrimmed.replaceAll(num1ToRemove, "");
                     }
                     firstCoinTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(firstCoinTempPrice);
+                    //System.out.println(firstCoinTempPrice);
                     
                     firstCoinTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(firstCoinTempRank);
+                    //System.out.println(firstCoinTempRank);
                     
                     firstCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(firstCoinTempMC);
+                    //System.out.println(firstCoinTempMC);
                     
                     firstCoinTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(firstCoinTempCS);
+                    //System.out.println(firstCoinTempCS);
                     
                 }
                 count++;
@@ -453,21 +453,21 @@ public class TopTenCrypto extends JFrame implements ActionListener{
                     String num1ToRemove = "2";
                     secondCoinTicker = row.select("td:nth-of-type(3)").text();
                     secondCoinTickerTrimmed = secondCoinTicker.substring(0, secondCoinTicker.length() - 3);
-                    System.out.println(secondCoinTicker.substring(0, secondCoinTicker.length() - 3));
+                    //System.out.println(secondCoinTicker.substring(0, secondCoinTicker.length() - 3));
                     if (secondCoinTickerTrimmed.contains(num1ToRemove)) {
                         secondCoinTickerTrimmed = secondCoinTickerTrimmed.replaceAll(num1ToRemove, "");
                     }
                     secondCoinTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(secondCoinTempPrice);
+                    //System.out.println(secondCoinTempPrice);
                     
                     secondCoinTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(secondCoinTempRank);
+                    //System.out.println(secondCoinTempRank);
                     
                     secondCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(secondCoinTempMC);
+                    //System.out.println(secondCoinTempMC);
                     
                     secondCoinTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(secondCoinTempCS);
+                    //System.out.println(secondCoinTempCS);
                     
                 }
                 count++;
@@ -494,7 +494,7 @@ public class TopTenCrypto extends JFrame implements ActionListener{
                 } else {
                     String num3ToRemove = "3";
                     thirdCoinTicker = row.select("td:nth-of-type(3)").text();
-                    System.out.println(thirdCoinTicker);
+                    //System.out.println(thirdCoinTicker);
                     if(thirdCoinTicker.contains("Buy")){
                         thirdCoinTicker = thirdCoinTicker.substring(0, thirdCoinTicker.length() - 3);
                     }
@@ -502,16 +502,16 @@ public class TopTenCrypto extends JFrame implements ActionListener{
                         thirdCoinTicker = thirdCoinTicker.replaceAll(num3ToRemove, "");
                     }
                     thirdCoinTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(thirdCoinTempPrice);
+                    //System.out.println(thirdCoinTempPrice);
                     
                     thirdCoinTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(thirdCoinTempRank);
+                    //System.out.println(thirdCoinTempRank);
                     
                     thirdCoinTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(thirdCoinTempMC);
+                    //System.out.println(thirdCoinTempMC);
                     
                     thirdCoinTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(thirdCoinTempCS);
+                    //System.out.println(thirdCoinTempCS);
                     
                 }
                 count++;

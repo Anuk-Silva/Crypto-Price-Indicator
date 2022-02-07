@@ -713,30 +713,30 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     {
                         btcRow = btcNameCell.split(" ");
                         btcName = btcRow[0];
-                        System.out.println(btcName);
+                        //System.out.println(btcName);
                         btcTicker = btcRow[2];
-                        System.out.println(btcTicker);
+                        //System.out.println(btcTicker);
                         btcName = btcName + " " + btcTicker;
-                        System.out.println(btcName);
+                        //System.out.println(btcName);
                         btcNameCell = btcNameCell.split(" ")[0];
                         System.out.println("This is Bitcoin");
-                        System.out.println(btcNameCell);
+                        //System.out.println(btcNameCell);
                     }
                     else{
                         System.out.println("This is not Bitcoin");
                     }
                     
                     btcTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(btcTempPrice);
+                    //System.out.println(btcTempPrice);
                     
                     btcTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(btcTempRank);
+                    //System.out.println(btcTempRank);
                     
                     btcTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(btcTempMC);
+                    //System.out.println(btcTempMC);
                     
                     btcTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(btcTempCS);
+                    //System.out.println(btcTempCS);
                     
                 }
                 if(btcNameCell.contains("Bitcoin")){
@@ -764,30 +764,30 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     {
                         ethRow = ethNameCell.split(" ");
                         ethName = ethRow[0];
-                        System.out.println(ethName);
+                        //System.out.println(ethName);
                         ethTicker = ethRow[2];
-                        System.out.println(ethTicker);
+                        //System.out.println(ethTicker);
                         ethName = ethName + " " + ethTicker;
-                        System.out.println(ethName);
+                        //System.out.println(ethName);
                         ethNameCell = ethNameCell.split(" ")[0];
                         System.out.println("This is Ethereum");
-                        System.out.println(ethNameCell);
+                        //System.out.println(ethNameCell);
                     }
                     else{
                         System.out.println("This is not Ethereum");
                     }
                     
                     ethTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(ethTempPrice);
+                    //System.out.println(ethTempPrice);
                     
                     ethTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(ethTempRank);
+                    //System.out.println(ethTempRank);
                     
                     ethTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(ethTempMC);
+                    //System.out.println(ethTempMC);
                     
                     ethTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(ethTempCS);
+                    //System.out.println(ethTempCS);
                     
                 }
                 if(ethNameCell.contains("Ethereum")){
@@ -815,30 +815,30 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     {
                         bnbRow = bnbNameCell.split(" ");
                         bnbName = bnbRow[0];
-                        System.out.println(bnbName);
+                        //System.out.println(bnbName);
                         bnbTicker = bnbRow[2];
-                        System.out.println(bnbTicker);
+                        //System.out.println(bnbTicker);
                         bnbName = bnbName + " " + bnbTicker;
-                        System.out.println(bnbName);
+                        //System.out.println(bnbName);
                         bnbNameCell = bnbNameCell.split(" ")[0];
                         System.out.println("This is BNB");
-                        System.out.println(bnbNameCell);
+                        //System.out.println(bnbNameCell);
                     }
                     else{
                         System.out.println("This is not BNB");
                     }
                     
                     bnbTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(bnbTempPrice);
+                    //System.out.println(bnbTempPrice);
                     
                     bnbTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(bnbTempRank);
+                    //System.out.println(bnbTempRank);
                     
                     bnbTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(bnbTempMC);
+                    //System.out.println(bnbTempMC);
                     
                     bnbTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(bnbTempCS);
+                    //System.out.println(bnbTempCS);
                     
                 }
                 if(bnbNameCell.contains("BNB")){
@@ -866,30 +866,30 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     {
                         adaRow = adaNameCell.split(" ");
                         adaName = adaRow[0];
-                        System.out.println(adaName);
+                        //System.out.println(adaName);
                         adaTicker = adaRow[2];
-                        System.out.println(adaTicker);
+                        //System.out.println(adaTicker);
                         adaName = adaName + " " + adaTicker;
-                        System.out.println(adaName);
+                        //System.out.println(adaName);
                         adaNameCell = adaNameCell.split(" ")[0];
                         System.out.println("This is Ethereum");
-                        System.out.println(adaNameCell);
+                        //System.out.println(adaNameCell);
                     }
                     else{
                         System.out.println("This is not Ethereum");
                     }
                     
                     adaTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(adaTempPrice);
+                    //System.out.println(adaTempPrice);
                     
                     adaTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(adaTempRank);
+                    //System.out.println(adaTempRank);
                     
                     adaTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(adaTempMC);
+                    //System.out.println(adaTempMC);
                     
                     adaTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(adaTempCS);
+                    //System.out.println(adaTempCS);
                     
                 }
                 if(adaNameCell.contains("Cardano")){
@@ -917,30 +917,30 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     {
                         solRow = solNameCell.split(" ");
                         solName = solRow[0];
-                        System.out.println(solName);
+                        //System.out.println(solName);
                         solTicker = solRow[2];
-                        System.out.println(solTicker);
+                        //System.out.println(solTicker);
                         solName = solName + " " + solTicker;
-                        System.out.println(solName);
+                        //System.out.println(solName);
                         solNameCell = solNameCell.split(" ")[0];
                         System.out.println("This is Solana");
-                        System.out.println(solNameCell);
+                        //System.out.println(solNameCell);
                     }
                     else{
                         System.out.println("This is not Solana");
                     }
                     
                     solTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(solTempPrice);
+                    //System.out.println(solTempPrice);
                     
                     solTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(solTempRank);
+                    //System.out.println(solTempRank);
                     
                     solTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(solTempMC);
+                    //System.out.println(solTempMC);
                     
                     solTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(solTempCS);
+                    //System.out.println(solTempCS);
                     
                 }
                 if(solNameCell.contains("Solana")){
@@ -967,31 +967,32 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     if (xrpNameCell.contains("XRP"))
                     {
                         xrpRow = xrpNameCell.split(" ");
+                        //System.out.println(xrpNameCell);
                         xrpName = xrpRow[0];
-                        System.out.println(xrpName);
+                        //System.out.println(xrpName);
                         xrpTicker = xrpRow[2];
-                        System.out.println(xrpTicker);
+                        //System.out.println(xrpTicker);
                         xrpName = xrpName + " " + xrpTicker;
-                        System.out.println(xrpName);
+                        //System.out.println(xrpName);
                         xrpNameCell = xrpNameCell.split(" ")[0];
                         System.out.println("This is XRP");
-                        System.out.println(xrpNameCell);
+                        //System.out.println(xrpNameCell);
                     }
                     else{
                         System.out.println("This is not XRP");
                     }
                     
                     xrpTempPrice = row.select("td:nth-of-type(4)").text();
-                    System.out.println(xrpTempPrice);
+                    //System.out.println(xrpTempPrice);
                     
                     xrpTempRank = row.select("td:nth-of-type(2)").text();
-                    System.out.println(xrpTempRank);
+                    //System.out.println(xrpTempRank);
                     
                     xrpTempMC = row.select(".ieFnWP.sc-1ow4cwt-1").text();
-                    System.out.println(xrpTempMC);
+                    //System.out.println(xrpTempMC);
                     
                     xrpTempCS = row.select("td:nth-of-type(9)").text();
-                    System.out.println(xrpTempCS);
+                    //System.out.println(xrpTempCS);
                     
                 }
                 if(xrpNameCell.contains("XRP")){
@@ -1005,7 +1006,6 @@ public class PopularCrypto extends JFrame implements ActionListener{
     
     static void webScrapeDOGE() {
         final String url = "https://coinmarketcap.com/";
-
         try {
             final Document document = Jsoup.connect(url).userAgent("Mozilla/17.0").timeout(10000).get();
 
@@ -1018,13 +1018,14 @@ public class PopularCrypto extends JFrame implements ActionListener{
                     if (dogeNameCell.contains("Dogecoin"))
                     {
                         dogeRow = dogeNameCell.split(" ");
+                        //System.out.println(dogeNameCell);
                         dogeName = dogeRow[0];
                         System.out.println(dogeName);
-                        dogeTicker = dogeRow[2];
-                        System.out.println(dogeTicker);
-                        dogeName = dogeName + " " + dogeTicker;
+                        //dogeTicker = dogeRow[0];
+                        //System.out.println(dogeTicker);
+                        //dogeName = dogeName;// + " " + dogeTicker;
                         System.out.println(dogeName);
-                        dogeNameCell = dogeNameCell.split(" ")[0];
+                        //dogeNameCell = dogeNameCell.split(" ")[0];
                         System.out.println("This is DOGE");
                         System.out.println(dogeNameCell);
                     }
@@ -1053,25 +1054,6 @@ public class PopularCrypto extends JFrame implements ActionListener{
             ex.printStackTrace();
         }
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    /*public static void main(String[] args) throws Exception{
-        // TODO code application logic here
-        webScrapeBTC();
-        webScrapeETH();
-        webScrapeADA();
-        webScrapeSOL();
-        
-        String str = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
-        //String str = "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";
-
-        
-        UIManager.setLookAndFeel(str);
-        new TopTenCrypto();
-    }*/
-
     @Override
     public void actionPerformed(ActionEvent e) {
     }
