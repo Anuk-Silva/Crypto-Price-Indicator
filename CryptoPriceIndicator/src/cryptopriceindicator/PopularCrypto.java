@@ -183,7 +183,8 @@ public class PopularCrypto extends JFrame implements ActionListener{
         this.setResizable(false);
         this.setSize(1350, 700);
         this.setLocationRelativeTo(null);
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
+        this.getContentPane().setBackground(Color.BLACK);
+        //this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Popular Cryptocurrencies and Prices");
         

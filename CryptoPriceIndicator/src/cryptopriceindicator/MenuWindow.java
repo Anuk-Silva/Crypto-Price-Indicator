@@ -38,6 +38,7 @@ public class MenuWindow extends JFrame implements ActionListener{
     private JPanel panel;
     private JButton popularCrypto;
     private JButton topTenCrypto;
+    private JButton changeTheme;
     
     private JLabel appTitle;
     
@@ -79,6 +80,16 @@ public class MenuWindow extends JFrame implements ActionListener{
         
         panel.add(topTenCrypto, c);
         
+        changeTheme = new JButton("Change Theme");
+        changeTheme.setPreferredSize(new Dimension(150, 30));
+        changeTheme.addActionListener(this);
+        changeTheme.setActionCommand("change");
+        c.gridx = 0;
+        c.gridy = 50;
+        c.insets = new Insets(200, 10, 100, 100);
+        
+        panel.add(changeTheme, c);
+        
         //setLayout(new GridBagLayout());
         //GridBagConstraints gbc = new GridBagConstraints();
         //gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -93,12 +104,13 @@ public class MenuWindow extends JFrame implements ActionListener{
         //gbc.weighty = 1;
         //add(buttons, gbc);
         //this.add(buttons);
-        
+        panel.setBackground(Color.red);
         this.setResizable(false);
         this.setSize(500, 500);
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //this.getContentPane().add(changeTheme);
         this.setTitle("Main Menu");
         this.setBackground(Color.LIGHT_GRAY);
         this.setVisible(true);
@@ -116,6 +128,14 @@ public class MenuWindow extends JFrame implements ActionListener{
             JFrame topTenCrypto = new TopTenCrypto();
         }
         
+        if (e.getSource() == changeTheme){ 
+            if (panel.getBackground() == Color.red){
+                panel.setBackground(Color.green); 
+            }
+            else if (panel.getBackground() == Color.green){
+                panel.setBackground(Color.yellow); 
+            }
+        }
     }
     
 }

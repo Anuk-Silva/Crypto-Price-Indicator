@@ -35,7 +35,6 @@ public class App {
         String str = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
         //String str = "com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel";
 
-        
         UIManager.setLookAndFeel(str);
         //new TopTenCrypto();
     }
