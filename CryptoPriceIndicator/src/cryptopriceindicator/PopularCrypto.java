@@ -5,6 +5,7 @@
  */
 package cryptopriceindicator;
 
+import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -42,8 +43,8 @@ import org.jsoup.nodes.Element;
  */
 public class PopularCrypto extends JFrame implements ActionListener{
     
-    private JPanel headerPanel;
-    private JPanel coinsPanel;
+    static public JPanel headerPanel;
+    static public JPanel coinsPanel;
     
     private JLabel name;
     private JLabel price;
@@ -180,10 +181,13 @@ public class PopularCrypto extends JFrame implements ActionListener{
         
     public PopularCrypto(){
         
+        addActionListener(new MenuWindow());
+        setFocusable(true);
+         
         this.setResizable(false);
         this.setSize(1350, 700);
         this.setLocationRelativeTo(null);
-        this.getContentPane().setBackground(Color.BLACK);
+        //this.getContentPane().setBackground(Color.BLACK);
         //this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Popular Cryptocurrencies and Prices");

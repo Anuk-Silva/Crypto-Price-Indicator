@@ -104,13 +104,12 @@ public class MenuWindow extends JFrame implements ActionListener{
         //gbc.weighty = 1;
         //add(buttons, gbc);
         //this.add(buttons);
-        panel.setBackground(Color.red);
+        panel.setBackground(Color.BLACK);
         this.setResizable(false);
         this.setSize(500, 500);
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //this.getContentPane().add(changeTheme);
         this.setTitle("Main Menu");
         this.setBackground(Color.LIGHT_GRAY);
         this.setVisible(true);
@@ -129,11 +128,38 @@ public class MenuWindow extends JFrame implements ActionListener{
         }
         
         if (e.getSource() == changeTheme){ 
-            if (panel.getBackground() == Color.red){
-                panel.setBackground(Color.green); 
+            if (PopularCrypto.headerPanel.getBackground() == Color.LIGHT_GRAY){
+                PopularCrypto.headerPanel.setBackground(Color.BLACK);
             }
-            else if (panel.getBackground() == Color.green){
-                panel.setBackground(Color.yellow); 
+            if (panel.getBackground() == Color.black){
+                panel.setBackground(Color.GRAY);
+            }
+            else if (panel.getBackground() == Color.GRAY){
+                panel.setBackground(Color.lightGray); 
+            }
+            else if (panel.getBackground() == Color.LIGHT_GRAY){
+                panel.setBackground(Color.darkGray); 
+            }
+            else if (panel.getBackground() == Color.darkGray){
+                panel.setBackground(Color.BLUE); 
+            }
+            else if (panel.getBackground() == Color.BLUE){
+                panel.setBackground(Color.CYAN); 
+            }
+            else if (panel.getBackground() == Color.CYAN){
+                panel.setBackground(Color.GREEN); 
+            }
+            else if (panel.getBackground() == Color.GREEN){
+                panel.setBackground(Color.YELLOW); 
+            }
+            else if (panel.getBackground() == Color.YELLOW){
+                panel.setBackground(Color.ORANGE); 
+            }
+            else if (panel.getBackground() == Color.ORANGE){
+                panel.setBackground(Color.RED); 
+            }
+            else if (panel.getBackground() == Color.RED){
+                panel.setBackground(Color.BLACK); 
             }
         }
     }
